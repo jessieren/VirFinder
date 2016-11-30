@@ -1,0 +1,8 @@
+useDynLib(VirFinder)
+exportPattern("^[[:alpha:]]+")
+export(VF.pred)
+export(VF.qvalue)
+importFrom(Rcpp, evalCpp)
+importFrom("stats", "predict")
+importFrom("utils", "data")
+import("glmnet", "qvalue")
