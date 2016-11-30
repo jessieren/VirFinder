@@ -72,7 +72,7 @@ line0 <- lineNum
 
 }else{
 #### continue writing contig line ####
-seqFa <- paste(seqFa, strsplit(line, "")[[1]], sep="")
+seqFa <- c(seqFa, strsplit(line, "")[[1]])
 #write(line, file=currentContigSeqFile, append=TRUE)
 #sink()
 flag <- flag + 1

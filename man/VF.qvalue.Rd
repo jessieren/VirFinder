@@ -55,10 +55,14 @@ Sciences, 100: 9440-9445.
 
 \examples{
 
-inFaFile <- system.file("data", "LC.contigs.gt1000.top30.fa", package="VirFinder")
+## predict for contigs
+inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
 predResult <- VF.pred(inFaFile)
 
+## estimate q-values based on p-values
 predResult$qvalue <- VF.qvalue(predResult$pvalue)
+
+## sort sequences by q-value in ascending order
 predResult[order(predResult$qvalue),]
 
 }

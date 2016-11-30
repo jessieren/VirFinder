@@ -29,7 +29,7 @@ The function returns a data frame. The rows correspond to sequences, and the col
 \examples{
 
 ## input fasta file name
-inFaFile <- system.file("data", "LC.contigs.gt1000.top30.fa", package="VirFinder")
+inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
 
 ## prediction
 predResult <- VF.pred(inFaFile)
@@ -37,6 +37,10 @@ predResult
 
 ## sort sequences by p-value in ascending order
 predResult[order(predResult$pvalue),]
+
+## predict for crAssphage
+inFaFile <- system.file("data", "crAssphage.fasta", package="VirFinder")
+VF.pred(inFaFile)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

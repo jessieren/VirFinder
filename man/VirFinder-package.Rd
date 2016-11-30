@@ -16,7 +16,7 @@
 	The package contains,
 	two functions: VF.pred, VF.qvalue, and
 
-	two data: VF.mod8mer, LC.contigs.gt1000.top30.fa
+	three data: VF.mod8mer, contigs.fa, crAssphage.fasta
 }
 \author{
 Jie Ren, Nathan Ahlgren, Jed Fuhrman, Fengzhu Sun
