@@ -15,6 +15,24 @@ The prediction method is based on the sequence signatures (k-tuple word frequenc
 Please refer to VirFinder-manual.pdf for usage instruction.
 
 
+Dependencies
+---------------
+R packages "glmnet", "qvalue" and "Rcpp" are needed to be installed before intall VirFinder.
+
+To install "glmnet" and "Rcpp", start R and enter,
+	
+	install.packages("glmnet")
+	install.packages("Rcpp")
+
+
+To install qvalue, start R and enter,
+
+	## try http:// if https:// URLs are not supported
+	source("https://bioconductor.org/biocLite.R")
+	biocLite("qvalue")
+
+
+
 
 Installation
 ---------------
@@ -22,7 +40,7 @@ To install the R package VirFinder, follow the instuctions on http://cran.r-proj
 
 To quick start, first download the package file VirFinder_1.0.tar.gz/VirFinder_1.0.zip according to your operating system.
 
-For Max/Linux users, if you have a Graphic User Interfaces (GUI) of R, you fire up a R graphic window and type 
+For Mac/Linux users, if you have a Graphic User Interfaces (GUI) of R, you fire up a R graphic window and type 
 
 	install.packages("<path_to_the_file>/VirFinder_1.0.tar.gz", repos = NULL, type="source")
 
@@ -44,6 +62,6 @@ For Windows users, if you have a Graphic User Interfaces (GUI) of R, you fire up
 
 If you are not using GUI of R, you can install the package from the command line. Simply type the following to the command line,
 
-	Rcmd INSTALL \your\path\to\VirFinder_1.0.zip
+	Rcmd INSTALL <path_to_the_file>\VirFinder_1.0.zip
 
 
