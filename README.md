@@ -66,6 +66,7 @@ If you are not using GUI of R, you can install the package from the command line
 
 
 Copyright and License Information
+-----------------------------------
 
 Copyright (C) 2016 University of Southern California, Jie Ren
 
