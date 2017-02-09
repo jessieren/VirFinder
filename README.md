@@ -21,16 +21,15 @@ R packages "glmnet", "Rcpp" and "qvalue" are needed to be installed before Insta
 To install "glmnet" and "Rcpp", start R and enter,
 	
 	install.packages("glmnet", dependencies=TRUE)
-	
-  install.packages("Rcpp", dependencies=TRUE)
+	install.packages("Rcpp", dependencies=TRUE)
 
 
 To install "qvalue", start R and enter,
 
 	## try http:// if https:// URLs are not supported
 	source("https://bioconductor.org/biocLite.R")
-  
-  ## it installs the package. it also check for out-of-date packages and asking if the user would like to update
+  ## it installs the package. 
+  ## it also check for out-of-date packages and asking if the user would like to update
 	biocLite("qvalue")
 
 
@@ -45,7 +44,6 @@ To quick start, first download the package file VirFinder_1.0.tar.gz or VirFinde
 For Mac/Linux users, if you have a Graphic User Interfaces (GUI) of R, you fire up a R graphic window and type, 
 
 	install.packages("<path_to_the_file>/VirFinder_1.0.tar.gz", repos = NULL, type="source")
-	
   library(VirFinder)
 
 
@@ -60,7 +58,6 @@ You can click "Install packages(s) from local files...", and choose the file Vir
 Or you can type, 
 
 	install.packages("<path_to_the_file>/VirFinder_1.0.zip", repos = NULL, type="source")
-
 	library(VirFinder)
 
 
@@ -76,7 +73,6 @@ Please refer to VirFinder-manual.pdf for usage instruction.
 To quick start, one can predict the viral contigs using the command,
    
     library(VirFinder)
-    
     predResult <- VF.pred(<path_to_the_fasta_file>)
     
     
@@ -84,12 +80,10 @@ As an example, the package provides a small testing data containing 30 contigs,
 
     #### (1) set the input fasta file name. 
     library(VirFinder)
-    
     inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
     
     #### (2) prediction
     predResult <- VF.pred(inFaFile)
-    
     predResult
     
     ## (2.1) sort sequences by p-value in ascending order
@@ -104,7 +98,6 @@ As an example, the package provides a small testing data containing 30 contigs,
 The package also has the reference sequence of crAssphage for users to test, 
 
     inFaFile <- system.file("data", "crAssphage.fasta", package="VirFinder")
-    
     VF.pred(inFaFile)
     
 
