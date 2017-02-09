@@ -70,7 +70,7 @@ Usage
 ---------  
 Please refer to VirFinder-manual.pdf for usage instruction.
 
-For quick start, one can predict the viral contigs using the command,
+To quick start, one can predict the viral contigs using the command,
 
     predResult <- VF.pred(<path_to_the_fasta_file>)
     
@@ -93,7 +93,7 @@ As an example, the package provides a small testing data containing 30 contigs,
     ## (2.3) sort sequences by q-value in ascending order
     predResult[order(predResult$qvalue),]
     
-The package also has the reference sequence of crAssphage,
+The package also has the reference sequence of crAssphage for users to test, 
 
     inFaFile <- system.file("data", "crAssphage.fasta", package="VirFinder")
     VF.pred(inFaFile)
