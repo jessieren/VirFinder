@@ -20,14 +20,15 @@ R packages "glmnet", "qvalue" and "Rcpp" are needed to be installed before Insta
 
 To install "glmnet" and "Rcpp", start R and enter,
 	
-	install.packages("glmnet")
-	install.packages("Rcpp")
+	install.packages("glmnet", dependencies=TRUE)
+	install.packages("Rcpp", dependencies=TRUE)
 
 
 To install qvalue, start R and enter,
 
 	## try http:// if https:// URLs are not supported
 	source("https://bioconductor.org/biocLite.R")
+  ## it installs the package. it also check for out-of-date packages and asking if the user would like to update
 	biocLite("qvalue")
 
 
@@ -71,13 +72,15 @@ Usage
 Please refer to VirFinder-manual.pdf for usage instruction.
 
 To quick start, one can predict the viral contigs using the command,
-
+   
+    library(VirFinder)
     predResult <- VF.pred(<path_to_the_fasta_file>)
     
     
 As an example, the package provides a small testing data containing 30 contigs, 
 
     #### (1) set the input fasta file name. 
+    library(VirFinder)
     inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
     
     #### (2) prediction
