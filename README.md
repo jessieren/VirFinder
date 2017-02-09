@@ -12,7 +12,6 @@ The package provides functions to predict viral sequences in a fasta file, such 
 
 The prediction method is based on the sequence signatures (k-tuple word frequencies) that distinguish virus from host sequences. The model was trained using equal number of known viral and host sequences. For a query sequence, the number of occurrences of k-tuple words are first counted by a c++ program using a hash table. Then the sequence is predicted based on the k-tuple word frequencies using a logistic regression model trained with previously known sequences.
 
-Please refer to VirFinder-manual.pdf for usage instruction.
 
 
 Dependencies
@@ -40,7 +39,7 @@ To install the R package VirFinder, follow the instuctions on http://cran.r-proj
 
 To quick start, first download the package file VirFinder_1.0.tar.gz/VirFinder_1.0.zip according to your operating system.
 
-For Mac/Linux users, if you have a Graphic User Interfaces (GUI) of R, you fire up a R graphic window and type 
+For Mac/Linux users, if you have a Graphic User Interfaces (GUI) of R, you fire up a R graphic window and type, 
 
 	install.packages("<path_to_the_file>/VirFinder_1.0.tar.gz", repos = NULL, type="source")
 
@@ -53,7 +52,9 @@ If you are not using GUI of R, you can install the package from the command line
 
 
 
-For Windows users, if you have a Graphic User Interfaces (GUI) of R, you fire up a R graphic window and type 
+For Windows users, if you have a Graphic User Interfaces (GUI) of R, you first fire up a R graphic window. 
+You can click "Install packages(s) from local files...", and choose the file VirFinder_1.0.zip. 
+Or you can type, 
 
 	install.packages("<path_to_the_file>/VirFinder_1.0.zip", repos = NULL, type="source")
 
@@ -63,6 +64,41 @@ For Windows users, if you have a Graphic User Interfaces (GUI) of R, you fire up
 If you are not using GUI of R, you can install the package from the command line. Simply type the following to the command line,
 
 	Rcmd INSTALL <path_to_the_file>\VirFinder_1.0.zip
+  
+
+Usage
+---------  
+Please refer to VirFinder-manual.pdf for usage instruction.
+
+For quick start, one can predict the viral contigs using the command,
+
+    predResult <- VF.pred(<path_to_the_fasta_file>)
+    
+    
+As an example, the package provides a small testing data containing 30 contigs, 
+
+    #### (1) set the input fasta file name. 
+    inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
+    
+    #### (2) prediction
+    predResult <- VF.pred(inFaFile)
+    predResult
+    
+    ## (2.1) sort sequences by p-value in ascending order
+    predResult[order(predResult$pvalue),]
+    
+    ## (2.2) estimate q-values (false discovery rates) based on p-values
+    predResult$qvalue <- VF.qvalue(predResult$pvalue)
+    
+    ## (2.3) sort sequences by q-value in ascending order
+    predResult[order(predResult$qvalue),]
+    
+The package also has the reference sequence of crAssphage,
+
+    inFaFile <- system.file("data", "crAssphage.fasta", package="VirFinder")
+    VF.pred(inFaFile)
+    
+
 
 
 Copyright and License Information
