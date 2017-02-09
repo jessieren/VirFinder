@@ -105,8 +105,11 @@ The package also has the reference sequence of crAssphage for users to test,
 
     inFaFile <- system.file("data", "crAssphage.fasta", package="VirFinder")
     VF.pred(inFaFile)
-    
+ 
 
+<p align="center">
+  <img src="result_snapshot.png"/>
+</p>
 
 
 Copyright and License Information
