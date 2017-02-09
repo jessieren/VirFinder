@@ -26,7 +26,11 @@ To install "glmnet" and "Rcpp", start R and enter,
 
 To install "qvalue", start R and enter,
 
-	## try http:// if https:// URLs are not supported
+  #### (1) set the input fasta file name. 
+  library(VirFinder)
+  inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
+
+  ## try http:// if https:// URLs are not supported
   biocLite("qvalue")
 	source("https://bioconductor.org/biocLite.R")
 
