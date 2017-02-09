@@ -26,8 +26,7 @@ To install "glmnet" and "Rcpp", start R and enter,
   
 To install "qvalue", start R and enter,
 
-	## try http:// if https:// URLs are not supported
-  ## it will also check for out-of-date packages and asking if the user would like to update
+	## try http:// if https:// URLs are not supported; it will also check for out-of-date packages and asking if the user would like to update
 	source("https://bioconductor.org/biocLite.R")
 	biocLite("qvalue")
 
