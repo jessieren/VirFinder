@@ -25,8 +25,9 @@ To install "glmnet" and "Rcpp", start R and enter,
 
 
 To install "qvalue", start R and enter,
-
-  #### (1) set the input fasta file name. 
+  
+(1) set the input fasta file name.
+ 
   library(VirFinder)
   inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
 
