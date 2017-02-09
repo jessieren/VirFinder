@@ -104,7 +104,7 @@ The package also has the reference sequence of crAssphage for users to test,
 Copyright and License Information
 -----------------------------------
 
-Copyright (C) 2016 University of Southern California, Jie Ren
+Copyright (C) 2017 University of Southern California, Jie Ren
 
 Authors: Jie Ren, Nathan Ahlgren, Jed Fuhrman, Fengzhu Sun
 
