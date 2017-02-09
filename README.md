@@ -105,7 +105,13 @@ The package also has the reference sequence of crAssphage for users to test,
 
     inFaFile <- system.file("data", "crAssphage.fasta", package="VirFinder")
     VF.pred(inFaFile)
- 
+
+The result will be something like the following. Each row represents a contig/sequences, 
+with name, length, score, p-value and q-value. The higher score or lower p-value 
+indicate higher likelihood of being a viral sequence. 
+The q-value measures the proportion of false positives incurring
+when predicting viral sequences using the corresponding p-value as a threshold.
+
 
 <p align="center">
   <img src="result_snapshot.png"/>
