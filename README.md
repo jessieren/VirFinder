@@ -22,14 +22,15 @@ To install "glmnet" and "Rcpp", start R and enter,
 	
 	install.packages("glmnet", dependencies=TRUE)
 	install.packages("Rcpp", dependencies=TRUE)
+  
+  
+To install "glmnet" and "Rcpp", start R and enter,
+	
+	install.packages("glmnet", dependencies=TRUE)
+	install.packages("Rcpp", dependencies=TRUE)
 
 
 To install "qvalue", start R and enter,
-  
-(1) set the input fasta file name.
- 
-  library(VirFinder)
-  inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
 
   ## try http:// if https:// URLs are not supported
   biocLite("qvalue")
