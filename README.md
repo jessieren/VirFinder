@@ -28,9 +28,8 @@ To install "qvalue", start R and enter,
 
 	## try http:// if https:// URLs are not supported
 	source("https://bioconductor.org/biocLite.R")
-  ## it installs the package. 
-  ## it also check for out-of-date packages and asking if the user would like to update
-	biocLite("qvalue")
+  ## it installs the package. it also check for out-of-date packages and asking if the user would like to update
+	> biocLite("qvalue")
 
 
 
