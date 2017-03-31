@@ -7,8 +7,9 @@ Identify viral sequences in a fasta file
 \description{
 The function identifies viral sequences in the input fasta file using the trained model.
 A score (higher value suggests higher possibility) and a p-value (lower value suggests higher possibility) will be assigned to each query sequence.
-For a query sequence of length L, if L < 1000, the model trained using 500 bp sequence is used for prediction;
-if 1000 <= L < 3000, the model trained using 1000 bp sequence is used; if L>=3000, the model trained using 3000 bp sequences is used for prediction.
+For a query sequence of length L, if L < 1 kb, the model trained using 0.5 kb sequence is used for prediction;
+if 1 kb <= L < 3 kb, the model trained using 1000 bp sequence is used; if L>=3 kb, the model trained using 3000 bp sequences is used for prediction.
+The prediction model uses the feature of k-tuple word frequency of a sequence to predict if it is a viral sequence. The k-tuple length used in the model is 8.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -28,22 +29,24 @@ The function returns a data frame. The rows correspond to sequences, and the col
 
 \examples{
 
-## input fasta file name
+## (1) set the input fasta file name. 
+library(VirFinder)
 inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
 
-## prediction
+## (2) prediction
 predResult <- VF.pred(inFaFile)
 predResult
 
 ## sort sequences by p-value in ascending order
 predResult[order(predResult$pvalue),]
 
-## predict for crAssphage
-inFaFile <- system.file("data", "crAssphage.fasta", package="VirFinder")
+## (3) predict for crAssphage
+inFaFile <- system.file("data", "crAssphage.fa", package="VirFinder")
 VF.pred(inFaFile)
+
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-%\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
+\keyword{ default }% use one of  RShowDoc("KEYWORDS")
 %\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
