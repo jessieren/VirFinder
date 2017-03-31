@@ -112,7 +112,7 @@ when predicting viral sequences using the corresponding p-value as a threshold.
 
 
 
-Training the model using user's database
+Training the model using users' database
 --------- 
 A new function has been added to the package to allow users to train the prediction model 
 using their own database for viral sequences and host sequences. 
