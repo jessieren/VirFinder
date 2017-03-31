@@ -47,7 +47,6 @@ for easily loading and calling it in the future.
 
 }
 
-}
 \note{
   One must be careful that the sequences in the database can be trusted as truly viral and prokaryotic, respectively. 
   The assembled contigs in metagenome could possibly have viral sequences, and similarity the contigs in metavirome could also

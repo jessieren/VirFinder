@@ -1,5 +1,5 @@
 # VirFinder: R package for identifying viral sequences from metagenomic data using sequence signatures
-Version: 1.0
+Version: 1.1
 
 Authors: Jie Ren, Nathan Ahlgren, Yang Lu, Jed Fuhrman, Fengzhu Sun
 

@@ -6,7 +6,7 @@ Date: 2017-03-28
 Author: Jie Ren, Nathan Ahlgren, Jed Fuhrman, Fengzhu Sun
 Maintainer: Jie Ren <renj@usc.edu>
 Description: The package provides functions to predict viral sequences in a fasta file. 
-Depends: glmnet, qvalue
+Depends: glmnet, qvalue, Matrix
 License: GPL (>= 2)
 Imports: Rcpp (>= 0.12.8)
 LinkingTo: Rcpp
