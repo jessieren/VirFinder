@@ -31,13 +31,6 @@ To install "qvalue", start R and enter,
 	biocLite("qvalue")
 
 
-To install "qvalue", start R and enter,
-
-  ## try http:// if https:// URLs are not supported
-  biocLite("qvalue")
-	source("https://bioconductor.org/biocLite.R")
-
-
 
 
 
@@ -84,21 +77,21 @@ To quick start, one can predict the viral contigs using the command,
     
 As an example, the package provides a small testing data containing 30 contigs, 
 
-    #### (1) set the input fasta file name. 
+    ## (1) set the input fasta file name. 
     library(VirFinder)
     inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
     
-    #### (2) prediction
+    ## (2) prediction
     predResult <- VF.pred(inFaFile)
     predResult
     
-    ## (2.1) sort sequences by p-value in ascending order
+    #### (2.1) sort sequences by p-value in ascending order
     predResult[order(predResult$pvalue),]
     
-    ## (2.2) estimate q-values (false discovery rates) based on p-values
+    #### (2.2) estimate q-values (false discovery rates) based on p-values
     predResult$qvalue <- VF.qvalue(predResult$pvalue)
     
-    ## (2.3) sort sequences by q-value in ascending order
+    #### (2.3) sort sequences by q-value in ascending order
     predResult[order(predResult$qvalue),]
     
 The package also has the reference sequence of crAssphage for users to test, 
@@ -116,6 +109,59 @@ when predicting viral sequences using the corresponding p-value as a threshold.
 <p align="center">
   <img src="result_snapshot.png"/>
 </p>
+
+
+
+Training the model using user's database
+--------- 
+A new function has been added to the package to allow users to train the prediction model 
+using their own database for viral sequences and host sequences. 
+
+To start with, two fasta formated files, containing viral sequences and host sequences respectively, need to be specified. 
+The directory where the file of the trained model will be saved and the name of the model need to be set as well.
+
+    ## (1) specifiy the fasta files of the training contigs
+    #### (1.1) one for virus and one for prokaryotic hosts
+    trainFaFileHost <- system.file("data", "tara_host.fa", package="VirFinder")
+    trainFaFileVirus <- system.file("data", "tara_virus.fa", package="VirFinder")
+
+    #### (1.2) specify the directory where the trained model will be saved, and the name of the model
+    userModDir <- file.path(find.package("VirFinder"))
+    userModName <- "modTara"
+    
+The input sequences are then fragmented into fixed lengths of 0.5 kb, 1kb and 3kb. 
+The k-tuple frequencies are counted for each fragments. 
+The length of the k-tuple need to be specified.
+The longer k-tuple can describe better the difference between virus and host sequences, 
+but if the data is not enough, it can lead to an overfitting problem. 
+Given the database, users are suggested to test different lengths of k-tuple in order to get the best model.
+
+Three different models are trained based on the k-tuple frequencies of viral and host fragments of three different lengths.
+The models are used for prediction of sequences of different lengths. 
+For query sequences of length < 1 kb, the model trained using 0.5 kb fragments is used for predicting.
+For sequences of length ranging from 1 kb to 3 kb, the model trained using 1 kb fragments is used, 
+and for sequences > 3 kb, the model trained using 3 kb fragments is used for prediction. 
+
+    ## (2) train the model using user's database
+    w <- 6  # the length of the k-tuple word
+    VF.trainModUser <- VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w)
+
+Once the trained model is returned, it can be used to predict viral sequences. 
+Here we use the same example, the small testing data containing 30 contigs, for illustrate the usage.
+
+    ## (3) predict the contigs using the customized model
+    #### (3.1) specify the fasta file containing contigs for prediction
+    inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
+
+    #### (3.2) prediction
+    predResultUser <- VF.pred.user(inFaFile, VF.trainModUser)
+    predResultUser
+
+    #### (3.3) sort sequences by p-value in ascending order
+    predResultUser[order(predResultUser$pvalue),]
+
+
+
 
 
 Copyright and License Information
