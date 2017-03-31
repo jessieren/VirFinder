@@ -1,9 +1,8 @@
-VF.pred <-
-function(inFaFile)
+VF.pred.user <-
+function(inFaFile, VF.trainModUser)
 {
-  data(VF.trainMod8mer)
-  w <- VF.trainMod8mer
-  
+  w <- VF.trainModUser
+   
   predResult <- NULL
   flag <- 0
   seqLength <- 0
@@ -44,20 +43,17 @@ function(inFaFile)
       #print("predict using lasso")
       if( seqLength < 1*1000 )
       {
-        lasso.mod <- attr(VF.trainMod8mer, "lasso.mod_0.5k")
-        rmWordID <- attr(VF.trainMod8mer, "rmWordID_0.5k")
-        nullDis <- attr(VF.trainMod8mer, "nullDis_0.5k")
+        lasso.mod <- attr(VF.trainModUser, "lasso.mod_0.5k")
+        nullDis <- attr(VF.trainModUser, "nullDis_0.5k")
       }else if( seqLength < 3*1000 ){
-        lasso.mod <- attr(VF.trainMod8mer, "lasso.mod_1k")
-        rmWordID <- attr(VF.trainMod8mer, "rmWordID_1k")
-        nullDis <- attr(VF.trainMod8mer, "nullDis_1k")
+        lasso.mod <- attr(VF.trainModUser, "lasso.mod_1k")
+        nullDis <- attr(VF.trainModUser, "nullDis_1k")
       }else {
-        lasso.mod <- attr(VF.trainMod8mer, "lasso.mod_3k")
-        rmWordID <- attr(VF.trainMod8mer, "rmWordID_3k")
-        nullDis <- attr(VF.trainMod8mer, "nullDis_3k")
+        lasso.mod <- attr(VF.trainModUser, "lasso.mod_3k")
+        nullDis <- attr(VF.trainModUser, "nullDis_3k")
       }
       
-      lasso.pred <- predict(lasso.mod, t(as.matrix(featureOut_kmerCount[-rmWordID])), type="response")
+      lasso.pred <- predict(lasso.mod, t(as.matrix(featureOut_kmerCount)), type="response")
       pvalue <- mean(nullDis > as.numeric(lasso.pred) )
       #write(paste(currentFileName, seqLength, lasso.pred, pvalue, sep=","), file=attr(objFa, "predFile"), append=TRUE)
       predResult <- rbind(predResult, c(currentFileName, seqLength, lasso.pred, pvalue))
@@ -92,20 +88,17 @@ function(inFaFile)
   #print("predict using lasso")
   if( seqLength < 1*1000 )
   {
-    lasso.mod <- attr(VF.trainMod8mer, "lasso.mod_0.5k")
-    rmWordID <- attr(VF.trainMod8mer, "rmWordID_0.5k")
-    nullDis <- attr(VF.trainMod8mer, "nullDis_0.5k")
+    lasso.mod <- attr(VF.trainModUser, "lasso.mod_0.5k")
+    nullDis <- attr(VF.trainModUser, "nullDis_0.5k")
   }else if( seqLength < 3*1000 ){
-    lasso.mod <- attr(VF.trainMod8mer, "lasso.mod_1k")
-    rmWordID <- attr(VF.trainMod8mer, "rmWordID_1k")
-    nullDis <- attr(VF.trainMod8mer, "nullDis_1k")
+    lasso.mod <- attr(VF.trainModUser, "lasso.mod_1k")
+    nullDis <- attr(VF.trainModUser, "nullDis_1k")
   }else {
-    lasso.mod <- attr(VF.trainMod8mer, "lasso.mod_3k")
-    rmWordID <- attr(VF.trainMod8mer, "rmWordID_3k")
-    nullDis <- attr(VF.trainMod8mer, "nullDis_3k")
+    lasso.mod <- attr(VF.trainModUser, "lasso.mod_3k")
+    nullDis <- attr(VF.trainModUser, "nullDis_3k")
   }
   
-  lasso.pred <- predict(lasso.mod, t(as.matrix(featureOut_kmerCount[-rmWordID])), type="response")
+  lasso.pred <- predict(lasso.mod, t(as.matrix(featureOut_kmerCount)), type="response")
   pvalue <- mean(nullDis > as.numeric(lasso.pred) )
   #write(paste(currentFileName, seqLength, lasso.pred, pvalue, sep=","), file=attr(objFa, "predFile"), append=TRUE)
   predResult <- rbind(predResult, c(currentFileName, seqLength, lasso.pred, pvalue))

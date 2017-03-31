@@ -55,18 +55,24 @@ Sciences, 100: 9440-9445.
 
 \examples{
 
-## predict for contigs
+## (1) set the input fasta file name. 
+library(VirFinder)
 inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
-predResult <- VF.pred(inFaFile)
 
-## estimate q-values based on p-values
+## (2) prediction
+predResult <- VF.pred(inFaFile)
+predResult
+
+#### (2.1) sort sequences by p-value in ascending order
+predResult[order(predResult$pvalue),]
+
+#### (2.2) estimate q-values (false discovery rates) based on p-values
 predResult$qvalue <- VF.qvalue(predResult$pvalue)
 
-## sort sequences by q-value in ascending order
+#### (2.3) sort sequences by q-value in ascending order
 predResult[order(predResult$qvalue),]
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-%\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-%\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ FDR }
