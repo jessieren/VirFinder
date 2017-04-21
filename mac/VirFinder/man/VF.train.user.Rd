@@ -76,7 +76,8 @@ userModName <- "modTara"
 
 ## (2) train the model using user's database
 w <- 4  # the length of the k-tuple word
-VF.trainModUser <- VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w, equalSize=TRUE)
+VF.trainModUser <- VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, 
+userModName, w, equalSize=TRUE)
 
 ## (3) load the trained model based on user's database
 modFile <- list.files(userModDir, userModName, full.names=TRUE)
