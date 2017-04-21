@@ -14,7 +14,7 @@ The prediction model is trained based on the k-tuple frequencies of viral and pr
 
 }
 \usage{
-VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w)
+VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w, equalSize)
 
 }
 %- maybe also 'usage' for other objects documented here.
@@ -33,6 +33,9 @@ The name of the model file.
 }
   \item{w}{
 The length of the k-tuple word.
+}
+  \item{equalSize}{
+If use the same number of virus and host fragments to train?
 }
 }
 
@@ -72,8 +75,8 @@ userModDir <- file.path(find.package("VirFinder"))
 userModName <- "modTara"
 
 ## (2) train the model using user's database
-w <- 6  # the length of the k-tuple word
-VF.trainModUser <- VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w)
+w <- 4  # the length of the k-tuple word
+VF.trainModUser <- VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w, equalSize=TRUE)
 
 ## (3) load the trained model based on user's database
 modFile <- list.files(userModDir, userModName, full.names=TRUE)

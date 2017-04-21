@@ -45,8 +45,8 @@ userModDir <- file.path(find.package("VirFinder"))
 userModName <- "modTara"
 
 ## (2) train the model using user's database
-w <- 6  # the length of the k-tuple word
-VF.trainModUser <- VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w)
+w <- 4  # the length of the k-tuple word
+VF.trainModUser <- VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w, equalSize=TRUE)
 
 ## (3) predict the contigs using the customized model
 #### (3.1) specify the fasta file containing contigs for prediction

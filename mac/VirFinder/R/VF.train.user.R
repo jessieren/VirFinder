@@ -1,4 +1,4 @@
-VF.train.user <- function(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w)
+VF.train.user <- function(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w, equalSize)
 {
   #w <- 8
   pairWords <- findUniquePairWords(w, 4)
@@ -7,12 +7,21 @@ VF.train.user <- function(trainFaFileHost, trainFaFileVirus, userModDir, userMod
   subLengthAll <- c(0.5, 1, 3) * 10^3
   for(subLength in subLengthAll)
   {
-    trainDataHost <- trainDataCollect(trainFaFileHost, subLength, w)
+    trainDataHost <- trainDataCollect(trainFaFileHost, subLength, w, userModDir)
     colnames(trainDataHost) <- pairWords
 
-    trainDataVirus <- trainDataCollect(trainFaFileVirus, subLength, w)
+    trainDataVirus <- trainDataCollect(trainFaFileVirus, subLength, w, userModDir)
     colnames(trainDataVirus) <- pairWords
-
+    
+    if(equalSize == TRUE)
+    {
+      size <- min(nrow(trainDataHost), nrow(trainDataVirus))
+      hostID <- sample(1:nrow(trainDataHost), size, replace=FALSE)
+      virusID <- sample(1:nrow(trainDataVirus), size, replace=FALSE)
+      trainDataHost <- trainDataHost[hostID, ]
+      trainDataVirus <- trainDataVirus[virusID, ] 
+    }
+    
     trainModOut <- trainMod(trainDataHost, trainDataVirus)
     nullDisOut <- nullDis(trainDataHost, trainDataVirus, trainModOut)
     
