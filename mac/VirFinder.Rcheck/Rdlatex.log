@@ -130,7 +130,7 @@ s/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times
 /utmr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmr8a.pf
 b></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (7 pages, 81647 bytes).
+Output written on Rd2.pdf (7 pages, 81664 bytes).
 Transcript written on Rd2.log.
 This is makeindex, version 2.15 [TeX Live 2014] (kpathsea + Thai support).
 Scanning input file Rd2.idx....done (12 entries accepted, 0 rejected).
@@ -277,7 +277,7 @@ s/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts
 urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/
 utmr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (9 pages, 90853 bytes).
+Output written on Rd2.pdf (9 pages, 90875 bytes).
 Transcript written on Rd2.log.
 This is makeindex, version 2.15 [TeX Live 2014] (kpathsea + Thai support).
 Scanning input file Rd2.idx....done (12 entries accepted, 0 rejected).
@@ -419,8 +419,8 @@ s/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts
 urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/
 utmr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (9 pages, 91102 bytes).
+Output written on Rd2.pdf (9 pages, 91121 bytes).
 Transcript written on Rd2.log.
 Saving output to 'VirFinder-manual.pdf' ...
 Done
-You may want to clean up by 'rm -rf /var/folders/v1/dghc5vh15bd9pzfts5n8yl4w0000gn/T//Rtmph2JZAn/Rd2pdf8cf845c68707'
+You may want to clean up by 'rm -rf /var/folders/v1/dghc5vh15bd9pzfts5n8yl4w0000gn/T//Rtmpo6xU0X/Rd2pdf9086453c6481'

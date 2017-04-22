@@ -12,4 +12,4 @@ License: GPL (>= 2)
 Imports: Rcpp (>= 0.12.8)
 LinkingTo: Rcpp
 NeedsCompilation: yes
-Packaged: 2017-04-22 00:50:07 UTC; Jessie
+Packaged: 2017-04-22 01:04:35 UTC; Jessie

@@ -35,7 +35,7 @@ The name of the model file.
 The length of the k-tuple word.
 }
   \item{equalSize}{
-If use the same number of virus and host fragments to train?
+If use the same number of virus and host fragments to train? Default is FALSE.
 }
 }
 

@@ -1,4 +1,4 @@
-VF.train.user <- function(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w, equalSize=FALSE)
+VF.train.user <- function(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w, equalSize)
 {
   #w <- 8
   pairWords <- findUniquePairWords(w, 4)

@@ -601,7 +601,7 @@ Loading required package: qvalue
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  533.445 4.622 551.385 0 0 
+Time elapsed:  553.023 5.818 578.617 0 0 
 > grDevices::dev.off()
 null device 
           1 

@@ -137,7 +137,7 @@ but if the data is not enough, it can lead to an overfitting problem.
 Given the database, users are suggested to test different lengths of k-tuple in order to get the best model.
 
 Three different models are trained based on the k-tuple frequencies of viral and host fragments of three different lengths.
-User can specify if equal number of virus and host fragments are used for training by setting equalSize=TRUE. 
+User can specify if equal numbers of virus and host fragments are used for training by setting equalSize=TRUE. 
 The default model is FALSE.
 The models are used for prediction of sequences of different lengths. 
 For query sequences of length < 1 kb, the model trained using 0.5 kb fragments is used for predicting.
