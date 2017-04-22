@@ -12,5 +12,5 @@ License: GPL (>= 2)
 Imports: Rcpp (>= 0.12.8)
 LinkingTo: Rcpp
 NeedsCompilation: yes
-Packaged: 2017-04-22 01:04:35 UTC; Jessie
-Built: R 3.3.0; x86_64-apple-darwin13.4.0; 2017-04-22 01:04:51 UTC; unix
+Packaged: 2017-04-22 18:12:10 UTC; Jessie
+Built: R 3.3.0; x86_64-apple-darwin13.4.0; 2017-04-22 18:12:42 UTC; unix
