@@ -44,8 +44,8 @@ For Mac/Linux users, if you have a Graphic User Interfaces (GUI) of R, you fire 
 
 
 
-  install.packages("<path_to_the_file>/VirFinder_1.0.tar.gz", repos = NULL, type="source")  
-	library(VirFinder)
+>  install.packages("<path_to_the_file>/VirFinder_1.0.tar.gz", repos = NULL, type="source")  
+>  library(VirFinder)
 
 
 If you are not using GUI of R, you can install the package from the command line. Simply type the following to the command line,
