@@ -1,0 +1,12 @@
+VF.pred                 Identify viral sequences in a fasta file
+VF.pred.user            Identify viral sequences in a fasta file using
+                        user's trained prediction model
+VF.qvalue               Estimate the false discovery rates (q-values)
+                        using p-values
+VF.train.user           Train virus prediction model using user's
+                        database
+VF.trainMod8mer         The prediction models trained using sequences
+                        of various lengths from virus and host complete
+                        genomes.
+VirFinder-package       An R package for predicting viral sequences in
+                        a fasta file.

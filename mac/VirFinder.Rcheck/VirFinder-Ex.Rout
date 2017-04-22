@@ -1,0 +1,613 @@
+
+R version 3.3.0 (2016-05-03) -- "Supposedly Educational"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "VirFinder"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> library('VirFinder')
+Loading required package: glmnet
+Loading required package: Matrix
+Loading required package: foreach
+Loaded glmnet 2.0-5
+
+Loading required package: qvalue
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("VF.pred")
+> ### * VF.pred
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: VF.pred
+> ### Title: Identify viral sequences in a fasta file
+> ### Aliases: VF.pred
+> ### Keywords: default
+> 
+> ### ** Examples
+> 
+> 
+> ## (1) set the input fasta file name. 
+> library(VirFinder)
+> inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
+> 
+> ## (2) prediction
+> predResult <- VF.pred(inFaFile)
+[1] "contigs.fa [1] line1-3 k99_68_flag_0_multi_1.0368_len_1132 len 1132 score 0.8561 pvalue 0.0281"
+[1] "contigs.fa [2] line3-5 k99_104_flag_1_multi_1.0445_len_1246 len 1246 score 0.0917 pvalue 0.5619"
+[1] "contigs.fa [3] line5-7 k99_105_flag_0_multi_1.0997_len_1202 len 1202 score 0.7161 pvalue 0.0698"
+[1] "contigs.fa [4] line7-9 k99_109_flag_1_multi_1.0000_len_1284 len 1284 score 0.9323 pvalue 0.0096"
+[1] "contigs.fa [5] line9-11 k99_116_flag_0_multi_1.1623_len_1085 len 1085 score 0.3412 pvalue 0.2471"
+[1] "contigs.fa [6] line11-13 k99_129_flag_0_multi_1.0895_len_1004 len 1004 score 0.1846 pvalue 0.4009"
+[1] "contigs.fa [7] line13-15 k99_195_flag_0_multi_1.1286_len_1304 len 1304 score 0.0364 pvalue 0.7445"
+[1] "contigs.fa [8] line15-17 k99_198_flag_0_multi_1.0240_len_2013 len 2013 score 0.7244 pvalue 0.0678"
+[1] "contigs.fa [9] line17-19 k99_202_flag_0_multi_1.0627_len_1422 len 1422 score 0.5907 pvalue 0.1156"
+[1] "contigs.fa [10] line19-21 k99_302_flag_0_multi_1.0064_len_2916 len 2916 score 0.1339 pvalue 0.476"
+[1] "contigs.fa [11] line21-23 k99_306_flag_0_multi_1.0681_len_2757 len 2757 score 0.3493 pvalue 0.2414"
+[1] "contigs.fa [12] line23-25 k99_322_flag_1_multi_1.0000_len_1376 len 1376 score 0.2341 pvalue 0.3418"
+[1] "contigs.fa [13] line25-27 k99_344_flag_0_multi_1.1461_len_2645 len 2645 score 0.0336 pvalue 0.7586"
+[1] "contigs.fa [14] line27-29 k99_364_flag_0_multi_1.0555_len_1667 len 1667 score 0.317 pvalue 0.2662"
+[1] "contigs.fa [15] line29-31 k99_371_flag_1_multi_1.0325_len_1267 len 1267 score 0.0159 pvalue 0.8602"
+[1] "contigs.fa [16] line31-33 k99_372_flag_0_multi_1.1047_len_1102 len 1102 score 0.3204 pvalue 0.2632"
+[1] "contigs.fa [17] line33-35 k99_378_flag_0_multi_1.1080_len_1155 len 1155 score 0.0398 pvalue 0.7281"
+[1] "contigs.fa [18] line35-37 k99_384_flag_1_multi_1.0000_len_1517 len 1517 score 0.3851 pvalue 0.2169"
+[1] "contigs.fa [19] line37-39 k99_385_flag_1_multi_1.0000_len_1397 len 1397 score 0.3991 pvalue 0.2092"
+[1] "contigs.fa [20] line39-41 k99_432_flag_1_multi_1.0246_len_1358 len 1358 score 0.0019 pvalue 0.9828"
+[1] "contigs.fa [21] line41-43 k99_437_flag_1_multi_1.0055_len_1002 len 1002 score 0.8048 pvalue 0.0423"
+[1] "contigs.fa [22] line43-45 k99_465_flag_0_multi_1.1863_len_1065 len 1065 score 0.0975 pvalue 0.5472"
+[1] "contigs.fa [23] line45-47 k99_472_flag_1_multi_1.0000_len_2005 len 2005 score 0.6057 pvalue 0.1091"
+[1] "contigs.fa [24] line47-49 k99_532_flag_0_multi_1.0000_len_1504 len 1504 score 0.0212 pvalue 0.8254"
+[1] "contigs.fa [25] line49-51 k99_534_flag_0_multi_1.1536_len_1889 len 1889 score 0.3577 pvalue 0.2354"
+[1] "contigs.fa [26] line51-53 k99_541_flag_0_multi_1.0173_len_2174 len 2174 score 0.7007 pvalue 0.0741"
+[1] "contigs.fa [27] line53-55 k99_557_flag_1_multi_1.0126_len_1522 len 1522 score 0.3253 pvalue 0.2594"
+[1] "contigs.fa [28] line55-57 k99_559_flag_1_multi_1.0000_len_1227 len 1227 score 0.415 pvalue 0.1996"
+[1] "contigs.fa [29] line57-59 k99_572_flag_0_multi_1.0696_len_1090 len 1090 score 0.2888 pvalue 0.2896"
+[1] "contigs.fa [30] line59-60 k99_575_flag_1_multi_1.0000_len_1738 len 1738 score 0.057 pvalue 0.6609"
+> predResult
+                                   name length       score      pvalue
+1   k99_68_flag_0_multi_1.0368_len_1132   1132 0.856126272 0.028102204
+2  k99_104_flag_1_multi_1.0445_len_1246   1246 0.091668970 0.561884641
+3  k99_105_flag_0_multi_1.0997_len_1202   1202 0.716108865 0.069836967
+4  k99_109_flag_1_multi_1.0000_len_1284   1284 0.932252656 0.009606569
+5  k99_116_flag_0_multi_1.1623_len_1085   1085 0.341216606 0.247100092
+6  k99_129_flag_0_multi_1.0895_len_1004   1004 0.184646374 0.400884920
+7  k99_195_flag_0_multi_1.1286_len_1304   1304 0.036384308 0.744489178
+8  k99_198_flag_0_multi_1.0240_len_2013   2013 0.724363286 0.067764181
+9  k99_202_flag_0_multi_1.0627_len_1422   1422 0.590679857 0.115637581
+10 k99_302_flag_0_multi_1.0064_len_2916   2916 0.133916603 0.475983577
+11 k99_306_flag_0_multi_1.0681_len_2757   2757 0.349318217 0.241360067
+12 k99_322_flag_1_multi_1.0000_len_1376   1376 0.234063710 0.341810499
+13 k99_344_flag_0_multi_1.1461_len_2645   2645 0.033572821 0.758600072
+14 k99_364_flag_0_multi_1.0555_len_1667   1667 0.317037722 0.266193646
+15 k99_371_flag_1_multi_1.0325_len_1267   1267 0.015881375 0.860206481
+16 k99_372_flag_0_multi_1.1047_len_1102   1102 0.320357751 0.263243911
+17 k99_378_flag_0_multi_1.1080_len_1155   1155 0.039779454 0.728146052
+18 k99_384_flag_1_multi_1.0000_len_1517   1517 0.385101492 0.216925101
+19 k99_385_flag_1_multi_1.0000_len_1397   1397 0.399082978 0.209152151
+20 k99_432_flag_1_multi_1.0246_len_1358   1358 0.001870218 0.982779926
+21 k99_437_flag_1_multi_1.0055_len_1002   1002 0.804777682 0.042292821
+22 k99_465_flag_0_multi_1.1863_len_1065   1065 0.097486499 0.547215689
+23 k99_472_flag_1_multi_1.0000_len_2005   2005 0.605717864 0.109140192
+24 k99_532_flag_0_multi_1.0000_len_1504   1504 0.021185383 0.825407582
+25 k99_534_flag_0_multi_1.1536_len_1889   1889 0.357671458 0.235420736
+26 k99_541_flag_0_multi_1.0173_len_2174   2174 0.700677058 0.074062263
+27 k99_557_flag_1_multi_1.0126_len_1522   1522 0.325323816 0.259377367
+28 k99_559_flag_1_multi_1.0000_len_1227   1227 0.415005601 0.199625304
+29 k99_572_flag_0_multi_1.0696_len_1090   1090 0.288802784 0.289632080
+30 k99_575_flag_1_multi_1.0000_len_1738   1738 0.056997091 0.660860206
+> 
+> ## sort sequences by p-value in ascending order
+> predResult[order(predResult$pvalue),]
+                                   name length       score      pvalue
+4  k99_109_flag_1_multi_1.0000_len_1284   1284 0.932252656 0.009606569
+1   k99_68_flag_0_multi_1.0368_len_1132   1132 0.856126272 0.028102204
+21 k99_437_flag_1_multi_1.0055_len_1002   1002 0.804777682 0.042292821
+8  k99_198_flag_0_multi_1.0240_len_2013   2013 0.724363286 0.067764181
+3  k99_105_flag_0_multi_1.0997_len_1202   1202 0.716108865 0.069836967
+26 k99_541_flag_0_multi_1.0173_len_2174   2174 0.700677058 0.074062263
+23 k99_472_flag_1_multi_1.0000_len_2005   2005 0.605717864 0.109140192
+9  k99_202_flag_0_multi_1.0627_len_1422   1422 0.590679857 0.115637581
+28 k99_559_flag_1_multi_1.0000_len_1227   1227 0.415005601 0.199625304
+19 k99_385_flag_1_multi_1.0000_len_1397   1397 0.399082978 0.209152151
+18 k99_384_flag_1_multi_1.0000_len_1517   1517 0.385101492 0.216925101
+25 k99_534_flag_0_multi_1.1536_len_1889   1889 0.357671458 0.235420736
+11 k99_306_flag_0_multi_1.0681_len_2757   2757 0.349318217 0.241360067
+5  k99_116_flag_0_multi_1.1623_len_1085   1085 0.341216606 0.247100092
+27 k99_557_flag_1_multi_1.0126_len_1522   1522 0.325323816 0.259377367
+16 k99_372_flag_0_multi_1.1047_len_1102   1102 0.320357751 0.263243911
+14 k99_364_flag_0_multi_1.0555_len_1667   1667 0.317037722 0.266193646
+29 k99_572_flag_0_multi_1.0696_len_1090   1090 0.288802784 0.289632080
+12 k99_322_flag_1_multi_1.0000_len_1376   1376 0.234063710 0.341810499
+6  k99_129_flag_0_multi_1.0895_len_1004   1004 0.184646374 0.400884920
+10 k99_302_flag_0_multi_1.0064_len_2916   2916 0.133916603 0.475983577
+22 k99_465_flag_0_multi_1.1863_len_1065   1065 0.097486499 0.547215689
+2  k99_104_flag_1_multi_1.0445_len_1246   1246 0.091668970 0.561884641
+30 k99_575_flag_1_multi_1.0000_len_1738   1738 0.056997091 0.660860206
+17 k99_378_flag_0_multi_1.1080_len_1155   1155 0.039779454 0.728146052
+7  k99_195_flag_0_multi_1.1286_len_1304   1304 0.036384308 0.744489178
+13 k99_344_flag_0_multi_1.1461_len_2645   2645 0.033572821 0.758600072
+24 k99_532_flag_0_multi_1.0000_len_1504   1504 0.021185383 0.825407582
+15 k99_371_flag_1_multi_1.0325_len_1267   1267 0.015881375 0.860206481
+20 k99_432_flag_1_multi_1.0246_len_1358   1358 0.001870218 0.982779926
+> 
+> ## (3) predict for crAssphage
+> inFaFile <- system.file("data", "crAssphage.fa", package="VirFinder")
+> VF.pred(inFaFile)
+[1] "crAssphage.fa [1] line1-1389 gi|674660337|ref|NC_024711.1| Uncultured phage crAssphage, complete genome len 97065 score 0.9826 pvalue 0.0034"
+                                                                        name
+1 gi|674660337|ref|NC_024711.1| Uncultured phage crAssphage, complete genome
+  length    score      pvalue
+1  97065 0.982621 0.003395586
+> 
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("VF.pred.user")
+> ### * VF.pred.user
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: VF.pred.user
+> ### Title: Identify viral sequences in a fasta file using user's trained
+> ###   prediction model
+> ### Aliases: VF.pred.user
+> ### Keywords: customization
+> 
+> ### ** Examples
+> 
+> 
+> ## (1) specifiy the fasta files of the training contigs
+> #### (1.1) one for virus and one for prokaryotic hosts
+> trainFaFileHost <- system.file("data", "tara_host.fa", package="VirFinder")
+> trainFaFileVirus <- system.file("data", "tara_virus.fa", package="VirFinder")
+> 
+> #### (1.2) specify the directory where the trained model will be saved to, and the name of the model
+> userModDir <- file.path(find.package("VirFinder"))
+> userModName <- "modTara"
+> 
+> ## (2) train the model using user's database
+> w <- 4  # the length of the k-tuple word
+> VF.trainModUser <- VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, 
++ userModName, w, equalSize=TRUE)
+[1] "...splitting /Users/jessie/Dropbox/contigIdentify/code/VirFinder/VirFinderR/VirFinder/mac/VirFinder.Rcheck/VirFinder/data/tara_host.fa into 500 bp..."
+[1] ".....collecting 0.5kb subSeq 2003, saving kmerCount file1..."
+[1] ".....processing '>' seq 100 in tara_host.fa....."
+[1] ".....collecting 0.5kb subSeq 4030, saving kmerCount file2..."
+[1] ".....collecting 0.5kb subSeq 4513, saving kmerCount file3..."
+[1] "...done! #seq:150, #subseq:4513"
+[1] "...splitting /Users/jessie/Dropbox/contigIdentify/code/VirFinder/VirFinderR/VirFinder/mac/VirFinder.Rcheck/VirFinder/data/tara_virus.fa into 500 bp..."
+[1] ".....collecting 0.5kb subSeq 2023, saving kmerCount file1..."
+[1] ".....processing '>' seq 100....."
+[1] ".....collecting 0.5kb subSeq 3785, saving kmerCount file2..."
+[1] "...done! #seq:100, #subseq:3785"
+[1] "...training the model with #3785 host and #3785 virus fragments"
+[1] "...splitting /Users/jessie/Dropbox/contigIdentify/code/VirFinder/VirFinderR/VirFinder/mac/VirFinder.Rcheck/VirFinder/data/tara_host.fa into 1000 bp..."
+[1] ".....processing '>' seq 100 in tara_host.fa....."
+[1] ".....collecting 1kb subSeq 2001, saving kmerCount file1..."
+[1] ".....collecting 1kb subSeq 2219, saving kmerCount file2..."
+[1] "...done! #seq:150, #subseq:2219"
+[1] "...splitting /Users/jessie/Dropbox/contigIdentify/code/VirFinder/VirFinderR/VirFinder/mac/VirFinder.Rcheck/VirFinder/data/tara_virus.fa into 1000 bp..."
+[1] ".....processing '>' seq 100....."
+[1] ".....collecting 1kb subSeq 1866, saving kmerCount file1..."
+[1] "...done! #seq:100, #subseq:1866"
+[1] "...training the model with #1866 host and #1866 virus fragments"
+[1] "...splitting /Users/jessie/Dropbox/contigIdentify/code/VirFinder/VirFinderR/VirFinder/mac/VirFinder.Rcheck/VirFinder/data/tara_host.fa into 3000 bp..."
+[1] ".....processing '>' seq 100 in tara_host.fa....."
+[1] ".....collecting 3kb subSeq 683, saving kmerCount file1..."
+[1] "...done! #seq:150, #subseq:683"
+[1] "...splitting /Users/jessie/Dropbox/contigIdentify/code/VirFinder/VirFinderR/VirFinder/mac/VirFinder.Rcheck/VirFinder/data/tara_virus.fa into 3000 bp..."
+[1] ".....processing '>' seq 100....."
+[1] ".....collecting 3kb subSeq 587, saving kmerCount file1..."
+[1] "...done! #seq:100, #subseq:587"
+[1] "...training the model with #587 host and #587 virus fragments"
+> 
+> ## (3) predict the contigs using the customized model
+> #### (3.1) specify the fasta file containing contigs for prediction
+> inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
+> 
+> #### (3.2) prediction
+> predResultUser <- VF.pred.user(inFaFile, VF.trainModUser)
+[1] "contigs.fa [1] line1-3 k99_68_flag_0_multi_1.0368_len_1132 len 1132 score 0.6606 pvalue 0.1328"
+[1] "contigs.fa [2] line3-5 k99_104_flag_1_multi_1.0445_len_1246 len 1246 score 0.906 pvalue 0.0214"
+[1] "contigs.fa [3] line5-7 k99_105_flag_0_multi_1.0997_len_1202 len 1202 score 0.6172 pvalue 0.1542"
+[1] "contigs.fa [4] line7-9 k99_109_flag_1_multi_1.0000_len_1284 len 1284 score 0.6131 pvalue 0.1563"
+[1] "contigs.fa [5] line9-11 k99_116_flag_0_multi_1.1623_len_1085 len 1085 score 0.5778 pvalue 0.1713"
+[1] "contigs.fa [6] line11-13 k99_129_flag_0_multi_1.0895_len_1004 len 1004 score 0.9782 pvalue 0.0021"
+[1] "contigs.fa [7] line13-15 k99_195_flag_0_multi_1.1286_len_1304 len 1304 score 0.649 pvalue 0.137"
+[1] "contigs.fa [8] line15-17 k99_198_flag_0_multi_1.0240_len_2013 len 2013 score 0.916 pvalue 0.015"
+[1] "contigs.fa [9] line17-19 k99_202_flag_0_multi_1.0627_len_1422 len 1422 score 0.7897 pvalue 0.0621"
+[1] "contigs.fa [10] line19-21 k99_302_flag_0_multi_1.0064_len_2916 len 2916 score 0.5554 pvalue 0.1884"
+[1] "contigs.fa [11] line21-23 k99_306_flag_0_multi_1.0681_len_2757 len 2757 score 0.7608 pvalue 0.0814"
+[1] "contigs.fa [12] line23-25 k99_322_flag_1_multi_1.0000_len_1376 len 1376 score 0.7081 pvalue 0.1071"
+[1] "contigs.fa [13] line25-27 k99_344_flag_0_multi_1.1461_len_2645 len 2645 score 0.938 pvalue 0.0086"
+[1] "contigs.fa [14] line27-29 k99_364_flag_0_multi_1.0555_len_1667 len 1667 score 0.3392 pvalue 0.3319"
+[1] "contigs.fa [15] line29-31 k99_371_flag_1_multi_1.0325_len_1267 len 1267 score 0.6556 pvalue 0.137"
+[1] "contigs.fa [16] line31-33 k99_372_flag_0_multi_1.1047_len_1102 len 1102 score 0.9517 pvalue 0.0064"
+[1] "contigs.fa [17] line33-35 k99_378_flag_0_multi_1.1080_len_1155 len 1155 score 0.6413 pvalue 0.1456"
+[1] "contigs.fa [18] line35-37 k99_384_flag_1_multi_1.0000_len_1517 len 1517 score 0.7201 pvalue 0.1006"
+[1] "contigs.fa [19] line37-39 k99_385_flag_1_multi_1.0000_len_1397 len 1397 score 0.9448 pvalue 0.0064"
+[1] "contigs.fa [20] line39-41 k99_432_flag_1_multi_1.0246_len_1358 len 1358 score 0.8991 pvalue 0.0257"
+[1] "contigs.fa [21] line41-43 k99_437_flag_1_multi_1.0055_len_1002 len 1002 score 0.3248 pvalue 0.3512"
+[1] "contigs.fa [22] line43-45 k99_465_flag_0_multi_1.1863_len_1065 len 1065 score 0.6124 pvalue 0.1563"
+[1] "contigs.fa [23] line45-47 k99_472_flag_1_multi_1.0000_len_2005 len 2005 score 0.9025 pvalue 0.0257"
+[1] "contigs.fa [24] line47-49 k99_532_flag_0_multi_1.0000_len_1504 len 1504 score 0.9486 pvalue 0.0064"
+[1] "contigs.fa [25] line49-51 k99_534_flag_0_multi_1.1536_len_1889 len 1889 score 0.4012 pvalue 0.2934"
+[1] "contigs.fa [26] line51-53 k99_541_flag_0_multi_1.0173_len_2174 len 2174 score 0.9516 pvalue 0.0064"
+[1] "contigs.fa [27] line53-55 k99_557_flag_1_multi_1.0126_len_1522 len 1522 score 0.5684 pvalue 0.1713"
+[1] "contigs.fa [28] line55-57 k99_559_flag_1_multi_1.0000_len_1227 len 1227 score 0.5942 pvalue 0.1627"
+[1] "contigs.fa [29] line57-59 k99_572_flag_0_multi_1.0696_len_1090 len 1090 score 0.0569 pvalue 0.7837"
+[1] "contigs.fa [30] line59-60 k99_575_flag_1_multi_1.0000_len_1738 len 1738 score 0.7201 pvalue 0.1006"
+> predResultUser
+                                   name length     score      pvalue
+1   k99_68_flag_0_multi_1.0368_len_1132   1132 0.6606315 0.132762313
+2  k99_104_flag_1_multi_1.0445_len_1246   1246 0.9060059 0.021413276
+3  k99_105_flag_0_multi_1.0997_len_1202   1202 0.6171776 0.154175589
+4  k99_109_flag_1_multi_1.0000_len_1284   1284 0.6131472 0.156316916
+5  k99_116_flag_0_multi_1.1623_len_1085   1085 0.5777718 0.171306210
+6  k99_129_flag_0_multi_1.0895_len_1004   1004 0.9782470 0.002141328
+7  k99_195_flag_0_multi_1.1286_len_1304   1304 0.6490405 0.137044968
+8  k99_198_flag_0_multi_1.0240_len_2013   2013 0.9160325 0.014989293
+9  k99_202_flag_0_multi_1.0627_len_1422   1422 0.7896913 0.062098501
+10 k99_302_flag_0_multi_1.0064_len_2916   2916 0.5554453 0.188436831
+11 k99_306_flag_0_multi_1.0681_len_2757   2757 0.7608256 0.081370450
+12 k99_322_flag_1_multi_1.0000_len_1376   1376 0.7081389 0.107066381
+13 k99_344_flag_0_multi_1.1461_len_2645   2645 0.9379561 0.008565310
+14 k99_364_flag_0_multi_1.0555_len_1667   1667 0.3391656 0.331905782
+15 k99_371_flag_1_multi_1.0325_len_1267   1267 0.6556022 0.137044968
+16 k99_372_flag_0_multi_1.1047_len_1102   1102 0.9516611 0.006423983
+17 k99_378_flag_0_multi_1.1080_len_1155   1155 0.6412625 0.145610278
+18 k99_384_flag_1_multi_1.0000_len_1517   1517 0.7200811 0.100642398
+19 k99_385_flag_1_multi_1.0000_len_1397   1397 0.9448500 0.006423983
+20 k99_432_flag_1_multi_1.0246_len_1358   1358 0.8990764 0.025695931
+21 k99_437_flag_1_multi_1.0055_len_1002   1002 0.3247552 0.351177730
+22 k99_465_flag_0_multi_1.1863_len_1065   1065 0.6124438 0.156316916
+23 k99_472_flag_1_multi_1.0000_len_2005   2005 0.9024706 0.025695931
+24 k99_532_flag_0_multi_1.0000_len_1504   1504 0.9485974 0.006423983
+25 k99_534_flag_0_multi_1.1536_len_1889   1889 0.4011819 0.293361884
+26 k99_541_flag_0_multi_1.0173_len_2174   2174 0.9516021 0.006423983
+27 k99_557_flag_1_multi_1.0126_len_1522   1522 0.5683598 0.171306210
+28 k99_559_flag_1_multi_1.0000_len_1227   1227 0.5942154 0.162740899
+29 k99_572_flag_0_multi_1.0696_len_1090   1090 0.0569317 0.783725910
+30 k99_575_flag_1_multi_1.0000_len_1738   1738 0.7200967 0.100642398
+> 
+> #### (3.3) sort sequences by p-value in ascending order
+> predResultUser[order(predResultUser$pvalue),]
+                                   name length     score      pvalue
+6  k99_129_flag_0_multi_1.0895_len_1004   1004 0.9782470 0.002141328
+16 k99_372_flag_0_multi_1.1047_len_1102   1102 0.9516611 0.006423983
+19 k99_385_flag_1_multi_1.0000_len_1397   1397 0.9448500 0.006423983
+24 k99_532_flag_0_multi_1.0000_len_1504   1504 0.9485974 0.006423983
+26 k99_541_flag_0_multi_1.0173_len_2174   2174 0.9516021 0.006423983
+13 k99_344_flag_0_multi_1.1461_len_2645   2645 0.9379561 0.008565310
+8  k99_198_flag_0_multi_1.0240_len_2013   2013 0.9160325 0.014989293
+2  k99_104_flag_1_multi_1.0445_len_1246   1246 0.9060059 0.021413276
+20 k99_432_flag_1_multi_1.0246_len_1358   1358 0.8990764 0.025695931
+23 k99_472_flag_1_multi_1.0000_len_2005   2005 0.9024706 0.025695931
+9  k99_202_flag_0_multi_1.0627_len_1422   1422 0.7896913 0.062098501
+11 k99_306_flag_0_multi_1.0681_len_2757   2757 0.7608256 0.081370450
+18 k99_384_flag_1_multi_1.0000_len_1517   1517 0.7200811 0.100642398
+30 k99_575_flag_1_multi_1.0000_len_1738   1738 0.7200967 0.100642398
+12 k99_322_flag_1_multi_1.0000_len_1376   1376 0.7081389 0.107066381
+1   k99_68_flag_0_multi_1.0368_len_1132   1132 0.6606315 0.132762313
+7  k99_195_flag_0_multi_1.1286_len_1304   1304 0.6490405 0.137044968
+15 k99_371_flag_1_multi_1.0325_len_1267   1267 0.6556022 0.137044968
+17 k99_378_flag_0_multi_1.1080_len_1155   1155 0.6412625 0.145610278
+3  k99_105_flag_0_multi_1.0997_len_1202   1202 0.6171776 0.154175589
+4  k99_109_flag_1_multi_1.0000_len_1284   1284 0.6131472 0.156316916
+22 k99_465_flag_0_multi_1.1863_len_1065   1065 0.6124438 0.156316916
+28 k99_559_flag_1_multi_1.0000_len_1227   1227 0.5942154 0.162740899
+5  k99_116_flag_0_multi_1.1623_len_1085   1085 0.5777718 0.171306210
+27 k99_557_flag_1_multi_1.0126_len_1522   1522 0.5683598 0.171306210
+10 k99_302_flag_0_multi_1.0064_len_2916   2916 0.5554453 0.188436831
+25 k99_534_flag_0_multi_1.1536_len_1889   1889 0.4011819 0.293361884
+14 k99_364_flag_0_multi_1.0555_len_1667   1667 0.3391656 0.331905782
+21 k99_437_flag_1_multi_1.0055_len_1002   1002 0.3247552 0.351177730
+29 k99_572_flag_0_multi_1.0696_len_1090   1090 0.0569317 0.783725910
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("VF.qvalue")
+> ### * VF.qvalue
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: VF.qvalue
+> ### Title: Estimate the false discovery rates (q-values) using p-values
+> ### Aliases: VF.qvalue
+> ### Keywords: FDR
+> 
+> ### ** Examples
+> 
+> 
+> ## (1) set the input fasta file name. 
+> library(VirFinder)
+> inFaFile <- system.file("data", "contigs.fa", package="VirFinder")
+> 
+> ## (2) prediction
+> predResult <- VF.pred(inFaFile)
+[1] "contigs.fa [1] line1-3 k99_68_flag_0_multi_1.0368_len_1132 len 1132 score 0.8561 pvalue 0.0281"
+[1] "contigs.fa [2] line3-5 k99_104_flag_1_multi_1.0445_len_1246 len 1246 score 0.0917 pvalue 0.5619"
+[1] "contigs.fa [3] line5-7 k99_105_flag_0_multi_1.0997_len_1202 len 1202 score 0.7161 pvalue 0.0698"
+[1] "contigs.fa [4] line7-9 k99_109_flag_1_multi_1.0000_len_1284 len 1284 score 0.9323 pvalue 0.0096"
+[1] "contigs.fa [5] line9-11 k99_116_flag_0_multi_1.1623_len_1085 len 1085 score 0.3412 pvalue 0.2471"
+[1] "contigs.fa [6] line11-13 k99_129_flag_0_multi_1.0895_len_1004 len 1004 score 0.1846 pvalue 0.4009"
+[1] "contigs.fa [7] line13-15 k99_195_flag_0_multi_1.1286_len_1304 len 1304 score 0.0364 pvalue 0.7445"
+[1] "contigs.fa [8] line15-17 k99_198_flag_0_multi_1.0240_len_2013 len 2013 score 0.7244 pvalue 0.0678"
+[1] "contigs.fa [9] line17-19 k99_202_flag_0_multi_1.0627_len_1422 len 1422 score 0.5907 pvalue 0.1156"
+[1] "contigs.fa [10] line19-21 k99_302_flag_0_multi_1.0064_len_2916 len 2916 score 0.1339 pvalue 0.476"
+[1] "contigs.fa [11] line21-23 k99_306_flag_0_multi_1.0681_len_2757 len 2757 score 0.3493 pvalue 0.2414"
+[1] "contigs.fa [12] line23-25 k99_322_flag_1_multi_1.0000_len_1376 len 1376 score 0.2341 pvalue 0.3418"
+[1] "contigs.fa [13] line25-27 k99_344_flag_0_multi_1.1461_len_2645 len 2645 score 0.0336 pvalue 0.7586"
+[1] "contigs.fa [14] line27-29 k99_364_flag_0_multi_1.0555_len_1667 len 1667 score 0.317 pvalue 0.2662"
+[1] "contigs.fa [15] line29-31 k99_371_flag_1_multi_1.0325_len_1267 len 1267 score 0.0159 pvalue 0.8602"
+[1] "contigs.fa [16] line31-33 k99_372_flag_0_multi_1.1047_len_1102 len 1102 score 0.3204 pvalue 0.2632"
+[1] "contigs.fa [17] line33-35 k99_378_flag_0_multi_1.1080_len_1155 len 1155 score 0.0398 pvalue 0.7281"
+[1] "contigs.fa [18] line35-37 k99_384_flag_1_multi_1.0000_len_1517 len 1517 score 0.3851 pvalue 0.2169"
+[1] "contigs.fa [19] line37-39 k99_385_flag_1_multi_1.0000_len_1397 len 1397 score 0.3991 pvalue 0.2092"
+[1] "contigs.fa [20] line39-41 k99_432_flag_1_multi_1.0246_len_1358 len 1358 score 0.0019 pvalue 0.9828"
+[1] "contigs.fa [21] line41-43 k99_437_flag_1_multi_1.0055_len_1002 len 1002 score 0.8048 pvalue 0.0423"
+[1] "contigs.fa [22] line43-45 k99_465_flag_0_multi_1.1863_len_1065 len 1065 score 0.0975 pvalue 0.5472"
+[1] "contigs.fa [23] line45-47 k99_472_flag_1_multi_1.0000_len_2005 len 2005 score 0.6057 pvalue 0.1091"
+[1] "contigs.fa [24] line47-49 k99_532_flag_0_multi_1.0000_len_1504 len 1504 score 0.0212 pvalue 0.8254"
+[1] "contigs.fa [25] line49-51 k99_534_flag_0_multi_1.1536_len_1889 len 1889 score 0.3577 pvalue 0.2354"
+[1] "contigs.fa [26] line51-53 k99_541_flag_0_multi_1.0173_len_2174 len 2174 score 0.7007 pvalue 0.0741"
+[1] "contigs.fa [27] line53-55 k99_557_flag_1_multi_1.0126_len_1522 len 1522 score 0.3253 pvalue 0.2594"
+[1] "contigs.fa [28] line55-57 k99_559_flag_1_multi_1.0000_len_1227 len 1227 score 0.415 pvalue 0.1996"
+[1] "contigs.fa [29] line57-59 k99_572_flag_0_multi_1.0696_len_1090 len 1090 score 0.2888 pvalue 0.2896"
+[1] "contigs.fa [30] line59-60 k99_575_flag_1_multi_1.0000_len_1738 len 1738 score 0.057 pvalue 0.6609"
+> predResult
+                                   name length       score      pvalue
+1   k99_68_flag_0_multi_1.0368_len_1132   1132 0.856126272 0.028102204
+2  k99_104_flag_1_multi_1.0445_len_1246   1246 0.091668970 0.561884641
+3  k99_105_flag_0_multi_1.0997_len_1202   1202 0.716108865 0.069836967
+4  k99_109_flag_1_multi_1.0000_len_1284   1284 0.932252656 0.009606569
+5  k99_116_flag_0_multi_1.1623_len_1085   1085 0.341216606 0.247100092
+6  k99_129_flag_0_multi_1.0895_len_1004   1004 0.184646374 0.400884920
+7  k99_195_flag_0_multi_1.1286_len_1304   1304 0.036384308 0.744489178
+8  k99_198_flag_0_multi_1.0240_len_2013   2013 0.724363286 0.067764181
+9  k99_202_flag_0_multi_1.0627_len_1422   1422 0.590679857 0.115637581
+10 k99_302_flag_0_multi_1.0064_len_2916   2916 0.133916603 0.475983577
+11 k99_306_flag_0_multi_1.0681_len_2757   2757 0.349318217 0.241360067
+12 k99_322_flag_1_multi_1.0000_len_1376   1376 0.234063710 0.341810499
+13 k99_344_flag_0_multi_1.1461_len_2645   2645 0.033572821 0.758600072
+14 k99_364_flag_0_multi_1.0555_len_1667   1667 0.317037722 0.266193646
+15 k99_371_flag_1_multi_1.0325_len_1267   1267 0.015881375 0.860206481
+16 k99_372_flag_0_multi_1.1047_len_1102   1102 0.320357751 0.263243911
+17 k99_378_flag_0_multi_1.1080_len_1155   1155 0.039779454 0.728146052
+18 k99_384_flag_1_multi_1.0000_len_1517   1517 0.385101492 0.216925101
+19 k99_385_flag_1_multi_1.0000_len_1397   1397 0.399082978 0.209152151
+20 k99_432_flag_1_multi_1.0246_len_1358   1358 0.001870218 0.982779926
+21 k99_437_flag_1_multi_1.0055_len_1002   1002 0.804777682 0.042292821
+22 k99_465_flag_0_multi_1.1863_len_1065   1065 0.097486499 0.547215689
+23 k99_472_flag_1_multi_1.0000_len_2005   2005 0.605717864 0.109140192
+24 k99_532_flag_0_multi_1.0000_len_1504   1504 0.021185383 0.825407582
+25 k99_534_flag_0_multi_1.1536_len_1889   1889 0.357671458 0.235420736
+26 k99_541_flag_0_multi_1.0173_len_2174   2174 0.700677058 0.074062263
+27 k99_557_flag_1_multi_1.0126_len_1522   1522 0.325323816 0.259377367
+28 k99_559_flag_1_multi_1.0000_len_1227   1227 0.415005601 0.199625304
+29 k99_572_flag_0_multi_1.0696_len_1090   1090 0.288802784 0.289632080
+30 k99_575_flag_1_multi_1.0000_len_1738   1738 0.056997091 0.660860206
+> 
+> #### (2.1) sort sequences by p-value in ascending order
+> predResult[order(predResult$pvalue),]
+                                   name length       score      pvalue
+4  k99_109_flag_1_multi_1.0000_len_1284   1284 0.932252656 0.009606569
+1   k99_68_flag_0_multi_1.0368_len_1132   1132 0.856126272 0.028102204
+21 k99_437_flag_1_multi_1.0055_len_1002   1002 0.804777682 0.042292821
+8  k99_198_flag_0_multi_1.0240_len_2013   2013 0.724363286 0.067764181
+3  k99_105_flag_0_multi_1.0997_len_1202   1202 0.716108865 0.069836967
+26 k99_541_flag_0_multi_1.0173_len_2174   2174 0.700677058 0.074062263
+23 k99_472_flag_1_multi_1.0000_len_2005   2005 0.605717864 0.109140192
+9  k99_202_flag_0_multi_1.0627_len_1422   1422 0.590679857 0.115637581
+28 k99_559_flag_1_multi_1.0000_len_1227   1227 0.415005601 0.199625304
+19 k99_385_flag_1_multi_1.0000_len_1397   1397 0.399082978 0.209152151
+18 k99_384_flag_1_multi_1.0000_len_1517   1517 0.385101492 0.216925101
+25 k99_534_flag_0_multi_1.1536_len_1889   1889 0.357671458 0.235420736
+11 k99_306_flag_0_multi_1.0681_len_2757   2757 0.349318217 0.241360067
+5  k99_116_flag_0_multi_1.1623_len_1085   1085 0.341216606 0.247100092
+27 k99_557_flag_1_multi_1.0126_len_1522   1522 0.325323816 0.259377367
+16 k99_372_flag_0_multi_1.1047_len_1102   1102 0.320357751 0.263243911
+14 k99_364_flag_0_multi_1.0555_len_1667   1667 0.317037722 0.266193646
+29 k99_572_flag_0_multi_1.0696_len_1090   1090 0.288802784 0.289632080
+12 k99_322_flag_1_multi_1.0000_len_1376   1376 0.234063710 0.341810499
+6  k99_129_flag_0_multi_1.0895_len_1004   1004 0.184646374 0.400884920
+10 k99_302_flag_0_multi_1.0064_len_2916   2916 0.133916603 0.475983577
+22 k99_465_flag_0_multi_1.1863_len_1065   1065 0.097486499 0.547215689
+2  k99_104_flag_1_multi_1.0445_len_1246   1246 0.091668970 0.561884641
+30 k99_575_flag_1_multi_1.0000_len_1738   1738 0.056997091 0.660860206
+17 k99_378_flag_0_multi_1.1080_len_1155   1155 0.039779454 0.728146052
+7  k99_195_flag_0_multi_1.1286_len_1304   1304 0.036384308 0.744489178
+13 k99_344_flag_0_multi_1.1461_len_2645   2645 0.033572821 0.758600072
+24 k99_532_flag_0_multi_1.0000_len_1504   1504 0.021185383 0.825407582
+15 k99_371_flag_1_multi_1.0325_len_1267   1267 0.015881375 0.860206481
+20 k99_432_flag_1_multi_1.0246_len_1358   1358 0.001870218 0.982779926
+> 
+> #### (2.2) estimate q-values (false discovery rates) based on p-values
+> predResult$qvalue <- VF.qvalue(predResult$pvalue)
+> 
+> #### (2.3) sort sequences by q-value in ascending order
+> predResult[order(predResult$qvalue),]
+                                   name length       score      pvalue
+4  k99_109_flag_1_multi_1.0000_len_1284   1284 0.932252656 0.009606569
+1   k99_68_flag_0_multi_1.0368_len_1132   1132 0.856126272 0.028102204
+3  k99_105_flag_0_multi_1.0997_len_1202   1202 0.716108865 0.069836967
+8  k99_198_flag_0_multi_1.0240_len_2013   2013 0.724363286 0.067764181
+21 k99_437_flag_1_multi_1.0055_len_1002   1002 0.804777682 0.042292821
+26 k99_541_flag_0_multi_1.0173_len_2174   2174 0.700677058 0.074062263
+9  k99_202_flag_0_multi_1.0627_len_1422   1422 0.590679857 0.115637581
+23 k99_472_flag_1_multi_1.0000_len_2005   2005 0.605717864 0.109140192
+5  k99_116_flag_0_multi_1.1623_len_1085   1085 0.341216606 0.247100092
+11 k99_306_flag_0_multi_1.0681_len_2757   2757 0.349318217 0.241360067
+14 k99_364_flag_0_multi_1.0555_len_1667   1667 0.317037722 0.266193646
+16 k99_372_flag_0_multi_1.1047_len_1102   1102 0.320357751 0.263243911
+18 k99_384_flag_1_multi_1.0000_len_1517   1517 0.385101492 0.216925101
+19 k99_385_flag_1_multi_1.0000_len_1397   1397 0.399082978 0.209152151
+25 k99_534_flag_0_multi_1.1536_len_1889   1889 0.357671458 0.235420736
+27 k99_557_flag_1_multi_1.0126_len_1522   1522 0.325323816 0.259377367
+28 k99_559_flag_1_multi_1.0000_len_1227   1227 0.415005601 0.199625304
+29 k99_572_flag_0_multi_1.0696_len_1090   1090 0.288802784 0.289632080
+12 k99_322_flag_1_multi_1.0000_len_1376   1376 0.234063710 0.341810499
+6  k99_129_flag_0_multi_1.0895_len_1004   1004 0.184646374 0.400884920
+10 k99_302_flag_0_multi_1.0064_len_2916   2916 0.133916603 0.475983577
+2  k99_104_flag_1_multi_1.0445_len_1246   1246 0.091668970 0.561884641
+22 k99_465_flag_0_multi_1.1863_len_1065   1065 0.097486499 0.547215689
+30 k99_575_flag_1_multi_1.0000_len_1738   1738 0.056997091 0.660860206
+7  k99_195_flag_0_multi_1.1286_len_1304   1304 0.036384308 0.744489178
+13 k99_344_flag_0_multi_1.1461_len_2645   2645 0.033572821 0.758600072
+17 k99_378_flag_0_multi_1.1080_len_1155   1155 0.039779454 0.728146052
+24 k99_532_flag_0_multi_1.0000_len_1504   1504 0.021185383 0.825407582
+15 k99_371_flag_1_multi_1.0325_len_1267   1267 0.015881375 0.860206481
+20 k99_432_flag_1_multi_1.0246_len_1358   1358 0.001870218 0.982779926
+      qvalue
+4  0.1417830
+1  0.1821803
+3  0.1821803
+8  0.1821803
+21 0.1821803
+26 0.1821803
+9  0.2133363
+23 0.2133363
+5  0.2311024
+11 0.2311024
+14 0.2311024
+16 0.2311024
+18 0.2311024
+19 0.2311024
+25 0.2311024
+27 0.2311024
+28 0.2311024
+29 0.2374815
+12 0.2655140
+6  0.2958322
+10 0.3345248
+2  0.3605579
+22 0.3605579
+30 0.4064003
+7  0.4146721
+13 0.4146721
+17 0.4146721
+24 0.4350770
+15 0.4377845
+20 0.4834936
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("VF.train.user")
+> ### * VF.train.user
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: VF.train.user
+> ### Title: Train virus prediction model using user's database
+> ### Aliases: VF.train.user
+> ### Keywords: customization
+> 
+> ### ** Examples
+> 
+> 
+> ## (1) train the model using user's database
+> #### (1.1) specifiy the fasta files of the training contigs, one for virus and one for prokaryotic hosts
+> trainFaFileHost <- system.file("data", "tara_host.fa", package="VirFinder")
+> trainFaFileVirus <- system.file("data", "tara_virus.fa", package="VirFinder")
+> 
+> #### (1.2) specify the directory where the trained model will be saved to, and the name of the model
+> userModDir <- file.path(find.package("VirFinder"))
+> userModName <- "modTara"
+> 
+> ## (2) train the model using user's database
+> w <- 4  # the length of the k-tuple word
+> VF.trainModUser <- VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, 
++ userModName, w, equalSize=TRUE)
+[1] "...splitting /Users/jessie/Dropbox/contigIdentify/code/VirFinder/VirFinderR/VirFinder/mac/VirFinder.Rcheck/VirFinder/data/tara_host.fa into 500 bp..."
+[1] ".....collecting 0.5kb subSeq 2003, saving kmerCount file1..."
+[1] ".....processing '>' seq 100 in tara_host.fa....."
+[1] ".....collecting 0.5kb subSeq 4030, saving kmerCount file2..."
+[1] ".....collecting 0.5kb subSeq 4513, saving kmerCount file3..."
+[1] "...done! #seq:150, #subseq:4513"
+[1] "...splitting /Users/jessie/Dropbox/contigIdentify/code/VirFinder/VirFinderR/VirFinder/mac/VirFinder.Rcheck/VirFinder/data/tara_virus.fa into 500 bp..."
+[1] ".....collecting 0.5kb subSeq 2023, saving kmerCount file1..."
+[1] ".....processing '>' seq 100....."
+[1] ".....collecting 0.5kb subSeq 3785, saving kmerCount file2..."
+[1] "...done! #seq:100, #subseq:3785"
+[1] "...training the model with #3785 host and #3785 virus fragments"
+[1] "...splitting /Users/jessie/Dropbox/contigIdentify/code/VirFinder/VirFinderR/VirFinder/mac/VirFinder.Rcheck/VirFinder/data/tara_host.fa into 1000 bp..."
+[1] ".....processing '>' seq 100 in tara_host.fa....."
+[1] ".....collecting 1kb subSeq 2001, saving kmerCount file1..."
+[1] ".....collecting 1kb subSeq 2219, saving kmerCount file2..."
+[1] "...done! #seq:150, #subseq:2219"
+[1] "...splitting /Users/jessie/Dropbox/contigIdentify/code/VirFinder/VirFinderR/VirFinder/mac/VirFinder.Rcheck/VirFinder/data/tara_virus.fa into 1000 bp..."
+[1] ".....processing '>' seq 100....."
+[1] ".....collecting 1kb subSeq 1866, saving kmerCount file1..."
+[1] "...done! #seq:100, #subseq:1866"
+[1] "...training the model with #1866 host and #1866 virus fragments"
+[1] "...splitting /Users/jessie/Dropbox/contigIdentify/code/VirFinder/VirFinderR/VirFinder/mac/VirFinder.Rcheck/VirFinder/data/tara_host.fa into 3000 bp..."
+[1] ".....processing '>' seq 100 in tara_host.fa....."
+[1] ".....collecting 3kb subSeq 683, saving kmerCount file1..."
+[1] "...done! #seq:150, #subseq:683"
+[1] "...splitting /Users/jessie/Dropbox/contigIdentify/code/VirFinder/VirFinderR/VirFinder/mac/VirFinder.Rcheck/VirFinder/data/tara_virus.fa into 3000 bp..."
+[1] ".....processing '>' seq 100....."
+[1] ".....collecting 3kb subSeq 587, saving kmerCount file1..."
+[1] "...done! #seq:100, #subseq:587"
+[1] "...training the model with #587 host and #587 virus fragments"
+> 
+> ## (3) load the trained model based on user's database
+> modFile <- list.files(userModDir, userModName, full.names=TRUE)
+> load(modFile)
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("VF.trainMod8mer")
+> ### * VF.trainMod8mer
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: VF.trainMod8mer
+> ### Title: The prediction models trained using sequences of various lengths
+> ###   from virus and host complete genomes.
+> ### Aliases: VF.trainMod8mer
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> data(VF.trainMod8mer)
+> 
+> 
+> 
+> ### * <FOOTER>
+> ###
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  533.445 4.622 551.385 0 0 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')
