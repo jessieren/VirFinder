@@ -112,7 +112,7 @@ when predicting viral sequences using the corresponding p-value as a threshold.
 
 
 
-Training the model using users' database
+Training models using users' database
 --------- 
 A new function has been added to the package to allow users to train the prediction model 
 using their own database for viral sequences and host sequences. 
@@ -144,7 +144,7 @@ and for sequences > 3 kb, the model trained using 3 kb fragments is used for pre
 
     ## (2) train the model using user's database
     w <- 6  # the length of the k-tuple word
-    VF.trainModUser <- VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w)
+    VF.trainModUser <- VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w, equalSize=TRUE)
 
 Once the trained model is returned, it can be used to predict viral sequences. 
 Here we use the same example, the small testing data containing 30 contigs, for illustrate the usage.
