@@ -42,8 +42,9 @@ To quick start, first download the package file VirFinder_1.0.tar.gz or VirFinde
 
 For Mac/Linux users, if you have a Graphic User Interfaces (GUI) of R, you fire up a R graphic window and type, 
 
-  install.packages("<path_to_the_file>/VirFinder_1.0.tar.gz", repos = NULL, type="source")
-  
+
+
+  install.packages("<path_to_the_file>/VirFinder_1.0.tar.gz", repos = NULL, type="source")  
 	library(VirFinder)
 
 
