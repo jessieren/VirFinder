@@ -137,15 +137,21 @@ but if the data is not enough, it can lead to an overfitting problem.
 Given the database, users are suggested to test different lengths of k-tuple in order to get the best model.
 
 Three different models are trained based on the k-tuple frequencies of viral and host fragments of three different lengths.
+User can specify if equal number of virus and host fragments are used for training by setting equalSize=TRUE. 
+The default model is FALSE.
 The models are used for prediction of sequences of different lengths. 
 For query sequences of length < 1 kb, the model trained using 0.5 kb fragments is used for predicting.
 For sequences of length ranging from 1 kb to 3 kb, the model trained using 1 kb fragments is used, 
 and for sequences > 3 kb, the model trained using 3 kb fragments is used for prediction. 
 
+
     ## (2) train the model using user's database
-    w <- 6  # the length of the k-tuple word
+    w <- 4  # the length of the k-tuple word
     VF.trainModUser <- VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w, equalSize=TRUE)
 
+Collecting fragments and training the model may take hours. 
+Roughly, it takes 1 min to collect 100 contigs and count 8-mer frequencies. 
+Decreasing kmer length can exponentially reduce the computing time.
 Once the trained model is returned, it can be used to predict viral sequences. 
 Here we use the same example, the small testing data containing 30 contigs, for illustrate the usage.
 
