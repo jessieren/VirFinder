@@ -176,6 +176,9 @@ Here we use the same example, the small testing data containing 30 contigs, for 
 
 The predict scores will be something like the following,
 
+<p align="center">
+  <img src="train_pred_snapshot.png"/>
+</p>
 
 
 
