@@ -2,10 +2,12 @@
 #include <tr1/unordered_map>
 //#include <unordered_map>
 #include <vector>
+#include <iostream>
 using namespace std::tr1;
 using namespace std;
 //
 using namespace Rcpp;
+
 //
 //
 ////unsigned long power;//parameter, power = 4^(k-1)
@@ -21,17 +23,17 @@ unordered_map<unsigned long,unsigned long> HashTable;
 int ZI = 4;
 
 
-
-void printFour(vector<unsigned long> four)
-{
-	cout << "print ";
-	for(int it=0; it<four.size(); it++)
-	{
-		cout << four[it] << "," ;
-	}
-	cout << endl;
-	
-}
+//
+//void printFour(vector<unsigned long> four)
+//{
+//	cout << "print ";
+//	for(int it=0; it<four.size(); it++)
+//	{
+//		cout << four[it] << "," ;
+//	}
+//	cout << endl;
+//	
+//}
 
 
 vector<int> ten2four(unsigned long ten, int k)
@@ -77,25 +79,29 @@ vector<int> reverseFour(vector<int> Four)
 
 
 
-unsigned long SeqKmerCountSingle(char* seqDNA, int k, unsigned long power)
+unsigned long SeqKmerCountSingle(CharacterVector seqDNA, int k, unsigned long power)
 {
 	//..........................
 	// int count: The length of char seq
 	int count = 0;
 	//..........................
-	int i=0,j=0;
+	int j=0;
 	unsigned long index = 0;
 	unsigned long total = 0;//total number of the kmers counted in seq
-	while(seqDNA[i])
+  //cout << "seqDNA.size()=" << seqDNA.size() << endl;
+  for( int i=0; i < seqDNA.size(); i++) //while(seqDNA[i])
 	{
+    //cout << "seqNDA[i]=" << seqDNA[i] << ",if==A" << seqDNA[i]=='A' << endl;
 		//kmer in seq[i,i+1,i+2,...i+k-1] transfered to an index
 		//current index = floor(previous index/4^(k-1))*4 + 0 or 1 or 2 or 3
-		if(seqDNA[i]=='A'|| seqDNA[i] == 'a') {j++; }
-		else if(seqDNA[i]=='C'|| seqDNA[i] == 'c') { j++; index++; }
-		else if(seqDNA[i]=='G'|| seqDNA[i] == 'g') { j++; index+=2; }
-		else if(seqDNA[i]=='T'|| seqDNA[i] == 't') { j++; index+=3; }
+    char seqPos = Rcpp::as< char >(seqDNA[i]);
+		if(seqPos == 'A'|| seqPos == 'a') {j++; }
+		else if(seqPos == 'C'|| seqPos == 'c') { j++; index++; }
+		else if(seqPos == 'G'|| seqPos == 'g') { j++; index+=2; }
+		else if(seqPos == 'T'|| seqPos == 't') { j++; index+=3; }
 		else { j=0; index=0; }//If seq[i] is ambiguous, reset j and index
 		
+    //cout << "index" << index << endl;
 		if( j == k )
 		{
 			HashTable[index]++;
@@ -104,7 +110,6 @@ unsigned long SeqKmerCountSingle(char* seqDNA, int k, unsigned long power)
 			j--;//the lengh of seq[i+1,i+2,...i+k-1]
 		}
 		index*=ZI;//current index = floor(previous index/4^(k-1))*4
-		i++;
 		count++;
 	}
 	
@@ -117,7 +122,7 @@ unsigned long SeqKmerCountSingle(char* seqDNA, int k, unsigned long power)
 
 
 // compute EuFeature using double strand
-void loadToVector(int k, unsigned long total, vector<unsigned long>& kmerTen,  vector<double>& kmerCount)
+void loadToVector(int k, unsigned long total, vector<double>& kmerCount)
 {
 	
 	//int countWord = 0;
@@ -136,7 +141,7 @@ void loadToVector(int k, unsigned long total, vector<unsigned long>& kmerTen,  v
 		
 		if( currentKmerRevTen >= currentKmerTen )
 		{
-			kmerTen.push_back(currentKmerTen);
+			//kmerTen.push_back(currentKmerTen);
 			kmerCount.push_back((HashTable[currentKmerTen] + HashTable[currentKmerRevTen])/double(2 * total));
 			//countWord ++;
 			
@@ -159,32 +164,32 @@ List countSeqFeatureCpp( CharacterVector RseqDNA,  int k) {
 	
 	// convert to C++ type
 	//Rcout << "seq is " ;
-	char seqDNAChar[RseqDNA.size()];
-	for( int i=0; i < RseqDNA.size(); i++ ){
-		//Rcout << RseqDNA(i);
-		seqDNAChar[i] = Rcpp::as< char >(RseqDNA(i));
-	}
+//	char seqDNAChar[RseqDNA.size()];
+//	for( int i=0; i < RseqDNA.size(); i++ ){
+//		//Rcout << RseqDNA[i];
+//		seqDNAChar[i] = Rcpp::as< char >(RseqDNA[i]);
+//	}
 	
 	unsigned long power = 1; for( int i = 0; i < k-1; i++) power *= 4;
 	HashTable.clear();
 
 	// count kmer
-	unsigned long total = SeqKmerCountSingle(seqDNAChar, k, power);
+	unsigned long total = SeqKmerCountSingle(RseqDNA, k, power);
 	
 	// pair words and output count
-	vector<unsigned long> kmerTen;
+	//vector<unsigned long> kmerTen;
 	vector<double> kmerCount;
-	loadToVector(k, total, kmerTen, kmerCount);
+	loadToVector(k, total, kmerCount);
 	//Rcout << "\n total:" << total << endl;
 
 	// convert to Rcpp type
-	NumericVector RkmerTen(kmerTen.size());
-	RkmerTen = kmerTen;
-	NumericVector RkmerCount(kmerCount.size());
-	RkmerCount = kmerCount;
+	//NumericVector RkmerTen(kmerTen.size());
+	//RkmerTen = kmerTen;
+	//NumericVector RkmerCount(kmerCount.size());
+	//RkmerCount = kmerCount;
 	
 	List ret;
-	ret["kmerTen"] = kmerTen;
+	//ret["kmerTen"] = kmerTen;
 	ret["kmerCount"] = kmerCount;
 	return ret;
 	

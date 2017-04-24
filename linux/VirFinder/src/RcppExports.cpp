@@ -5,7 +5,6 @@
 
 using namespace Rcpp;
 
-
 // countSeqFeatureCpp
 List countSeqFeatureCpp(CharacterVector RseqDNA, int k);
 RcppExport SEXP VirFinder_countSeqFeatureCpp(SEXP RseqDNASEXP, SEXP kSEXP) {

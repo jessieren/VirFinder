@@ -56,7 +56,7 @@ function(trainFaFile, subLength, w, userModDir)
       }
       
       ## split seqTrainKmerCount into several small documents to speed up
-      if( !is.null(seqTrainKmerCount) && nrow(seqTrainKmerCount) > 2000 )
+      if( !is.null(seqTrainKmerCount) && nrow(seqTrainKmerCount) >= 2000 )
       {
         fileNum <- fileNum + 1
         print(paste(".....collecting ", subLength/1000, "kb subSeq ", countSubSeq, ", saving kmerCount file", fileNum, "...", sep=""))

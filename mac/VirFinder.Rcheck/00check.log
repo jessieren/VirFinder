@@ -63,16 +63,8 @@ Please use e.g. ‘inst/extdata’ for non-R data files
 * checking data for non-ASCII characters ... OK
 * checking data for ASCII and uncompressed saves ... OK
 * checking line endings in C/C++/Fortran sources/headers ... OK
-* checking compiled code ... NOTE
-File ‘VirFinder/libs/VirFinder.so’:
-  Found ‘__ZNSt3__14coutE’, possibly from ‘std::cout’ (C++)
-    Object: ‘VF_cppfunction.o’
-
-Compiled code should not call entry points which might terminate R nor
-write to stdout/stderr instead of to the console, nor the system RNG.
-
-See ‘Writing portable packages’ in the ‘Writing R Extensions’ manual.
+* checking compiled code ... OK
 * checking examples ... OK
 * checking PDF version of manual ... OK
 * DONE
-Status: 3 WARNINGs, 3 NOTEs
+Status: 3 WARNINGs, 2 NOTEs
