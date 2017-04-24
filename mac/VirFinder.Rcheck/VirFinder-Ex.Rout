@@ -225,102 +225,102 @@ Loading required package: qvalue
 > 
 > #### (3.2) prediction
 > predResultUser <- VF.pred.user(inFaFile, VF.trainModUser)
-[1] "contigs.fa [1] line1-3 k99_68_flag_0_multi_1.0368_len_1132 len 1132 score 0.6606 pvalue 0.1306"
-[1] "contigs.fa [2] line3-5 k99_104_flag_1_multi_1.0445_len_1246 len 1246 score 0.906 pvalue 0.0193"
-[1] "contigs.fa [3] line5-7 k99_105_flag_0_multi_1.0997_len_1202 len 1202 score 0.6172 pvalue 0.152"
-[1] "contigs.fa [4] line7-9 k99_109_flag_1_multi_1.0000_len_1284 len 1284 score 0.6131 pvalue 0.1542"
-[1] "contigs.fa [5] line9-11 k99_116_flag_0_multi_1.1623_len_1085 len 1085 score 0.5778 pvalue 0.167"
-[1] "contigs.fa [6] line11-13 k99_129_flag_0_multi_1.0895_len_1004 len 1004 score 0.9782 pvalue 0"
-[1] "contigs.fa [7] line13-15 k99_195_flag_0_multi_1.1286_len_1304 len 1304 score 0.649 pvalue 0.137"
-[1] "contigs.fa [8] line15-17 k99_198_flag_0_multi_1.0240_len_2013 len 2013 score 0.916 pvalue 0.0128"
-[1] "contigs.fa [9] line17-19 k99_202_flag_0_multi_1.0627_len_1422 len 1422 score 0.7897 pvalue 0.0471"
-[1] "contigs.fa [10] line19-21 k99_302_flag_0_multi_1.0064_len_2916 len 2916 score 0.5554 pvalue 0.1842"
-[1] "contigs.fa [11] line21-23 k99_306_flag_0_multi_1.0681_len_2757 len 2757 score 0.7608 pvalue 0.0792"
-[1] "contigs.fa [12] line23-25 k99_322_flag_1_multi_1.0000_len_1376 len 1376 score 0.7081 pvalue 0.1071"
-[1] "contigs.fa [13] line25-27 k99_344_flag_0_multi_1.1461_len_2645 len 2645 score 0.938 pvalue 0.0064"
-[1] "contigs.fa [14] line27-29 k99_364_flag_0_multi_1.0555_len_1667 len 1667 score 0.3392 pvalue 0.3448"
-[1] "contigs.fa [15] line29-31 k99_371_flag_1_multi_1.0325_len_1267 len 1267 score 0.6556 pvalue 0.1328"
-[1] "contigs.fa [16] line31-33 k99_372_flag_0_multi_1.1047_len_1102 len 1102 score 0.9517 pvalue 0.0043"
-[1] "contigs.fa [17] line33-35 k99_378_flag_0_multi_1.1080_len_1155 len 1155 score 0.6413 pvalue 0.1435"
-[1] "contigs.fa [18] line35-37 k99_384_flag_1_multi_1.0000_len_1517 len 1517 score 0.7201 pvalue 0.0964"
-[1] "contigs.fa [19] line37-39 k99_385_flag_1_multi_1.0000_len_1397 len 1397 score 0.9448 pvalue 0.0064"
-[1] "contigs.fa [20] line39-41 k99_432_flag_1_multi_1.0246_len_1358 len 1358 score 0.8991 pvalue 0.0193"
-[1] "contigs.fa [21] line41-43 k99_437_flag_1_multi_1.0055_len_1002 len 1002 score 0.3248 pvalue 0.3555"
-[1] "contigs.fa [22] line43-45 k99_465_flag_0_multi_1.1863_len_1065 len 1065 score 0.6124 pvalue 0.1542"
-[1] "contigs.fa [23] line45-47 k99_472_flag_1_multi_1.0000_len_2005 len 2005 score 0.9025 pvalue 0.0193"
-[1] "contigs.fa [24] line47-49 k99_532_flag_0_multi_1.0000_len_1504 len 1504 score 0.9486 pvalue 0.0064"
-[1] "contigs.fa [25] line49-51 k99_534_flag_0_multi_1.1536_len_1889 len 1889 score 0.4012 pvalue 0.2955"
-[1] "contigs.fa [26] line51-53 k99_541_flag_0_multi_1.0173_len_2174 len 2174 score 0.9516 pvalue 0.0043"
-[1] "contigs.fa [27] line53-55 k99_557_flag_1_multi_1.0126_len_1522 len 1522 score 0.5684 pvalue 0.1713"
-[1] "contigs.fa [28] line55-57 k99_559_flag_1_multi_1.0000_len_1227 len 1227 score 0.5942 pvalue 0.1627"
-[1] "contigs.fa [29] line57-59 k99_572_flag_0_multi_1.0696_len_1090 len 1090 score 0.0569 pvalue 0.8073"
-[1] "contigs.fa [30] line59-60 k99_575_flag_1_multi_1.0000_len_1738 len 1738 score 0.7201 pvalue 0.0964"
+[1] "contigs.fa [1] line1-3 k99_68_flag_0_multi_1.0368_len_1132 len 1132 score 0.7475 pvalue 0.0835"
+[1] "contigs.fa [2] line3-5 k99_104_flag_1_multi_1.0445_len_1246 len 1246 score 0.9473 pvalue 0.0064"
+[1] "contigs.fa [3] line5-7 k99_105_flag_0_multi_1.0997_len_1202 len 1202 score 0.5824 pvalue 0.1649"
+[1] "contigs.fa [4] line7-9 k99_109_flag_1_multi_1.0000_len_1284 len 1284 score 0.6324 pvalue 0.1478"
+[1] "contigs.fa [5] line9-11 k99_116_flag_0_multi_1.1623_len_1085 len 1085 score 0.6151 pvalue 0.152"
+[1] "contigs.fa [6] line11-13 k99_129_flag_0_multi_1.0895_len_1004 len 1004 score 0.9898 pvalue 0"
+[1] "contigs.fa [7] line13-15 k99_195_flag_0_multi_1.1286_len_1304 len 1304 score 0.6605 pvalue 0.1306"
+[1] "contigs.fa [8] line15-17 k99_198_flag_0_multi_1.0240_len_2013 len 2013 score 0.9603 pvalue 0.0043"
+[1] "contigs.fa [9] line17-19 k99_202_flag_0_multi_1.0627_len_1422 len 1422 score 0.8272 pvalue 0.0385"
+[1] "contigs.fa [10] line19-21 k99_302_flag_0_multi_1.0064_len_2916 len 2916 score 0.4848 pvalue 0.2377"
+[1] "contigs.fa [11] line21-23 k99_306_flag_0_multi_1.0681_len_2757 len 2757 score 0.8088 pvalue 0.0407"
+[1] "contigs.fa [12] line23-25 k99_322_flag_1_multi_1.0000_len_1376 len 1376 score 0.7754 pvalue 0.0664"
+[1] "contigs.fa [13] line25-27 k99_344_flag_0_multi_1.1461_len_2645 len 2645 score 0.9691 pvalue 0.0043"
+[1] "contigs.fa [14] line27-29 k99_364_flag_0_multi_1.0555_len_1667 len 1667 score 0.3616 pvalue 0.3148"
+[1] "contigs.fa [15] line29-31 k99_371_flag_1_multi_1.0325_len_1267 len 1267 score 0.6929 pvalue 0.1113"
+[1] "contigs.fa [16] line31-33 k99_372_flag_0_multi_1.1047_len_1102 len 1102 score 0.9699 pvalue 0.0043"
+[1] "contigs.fa [17] line33-35 k99_378_flag_0_multi_1.1080_len_1155 len 1155 score 0.6049 pvalue 0.1542"
+[1] "contigs.fa [18] line35-37 k99_384_flag_1_multi_1.0000_len_1517 len 1517 score 0.7463 pvalue 0.0835"
+[1] "contigs.fa [19] line37-39 k99_385_flag_1_multi_1.0000_len_1397 len 1397 score 0.9669 pvalue 0.0043"
+[1] "contigs.fa [20] line39-41 k99_432_flag_1_multi_1.0246_len_1358 len 1358 score 0.9505 pvalue 0.0043"
+[1] "contigs.fa [21] line41-43 k99_437_flag_1_multi_1.0055_len_1002 len 1002 score 0.3861 pvalue 0.2998"
+[1] "contigs.fa [22] line43-45 k99_465_flag_0_multi_1.1863_len_1065 len 1065 score 0.6213 pvalue 0.1499"
+[1] "contigs.fa [23] line45-47 k99_472_flag_1_multi_1.0000_len_2005 len 2005 score 0.9478 pvalue 0.0064"
+[1] "contigs.fa [24] line47-49 k99_532_flag_0_multi_1.0000_len_1504 len 1504 score 0.9682 pvalue 0.0043"
+[1] "contigs.fa [25] line49-51 k99_534_flag_0_multi_1.1536_len_1889 len 1889 score 0.3787 pvalue 0.3019"
+[1] "contigs.fa [26] line51-53 k99_541_flag_0_multi_1.0173_len_2174 len 2174 score 0.967 pvalue 0.0043"
+[1] "contigs.fa [27] line53-55 k99_557_flag_1_multi_1.0126_len_1522 len 1522 score 0.5732 pvalue 0.1692"
+[1] "contigs.fa [28] line55-57 k99_559_flag_1_multi_1.0000_len_1227 len 1227 score 0.6841 pvalue 0.1178"
+[1] "contigs.fa [29] line57-59 k99_572_flag_0_multi_1.0696_len_1090 len 1090 score 0.0325 pvalue 0.8865"
+[1] "contigs.fa [30] line59-60 k99_575_flag_1_multi_1.0000_len_1738 len 1738 score 0.8083 pvalue 0.0407"
 > predResultUser
-                                   name length     score      pvalue
-1   k99_68_flag_0_multi_1.0368_len_1132   1132 0.6606315 0.130620985
-2  k99_104_flag_1_multi_1.0445_len_1246   1246 0.9060059 0.019271949
-3  k99_105_flag_0_multi_1.0997_len_1202   1202 0.6171776 0.152034261
-4  k99_109_flag_1_multi_1.0000_len_1284   1284 0.6131472 0.154175589
-5  k99_116_flag_0_multi_1.1623_len_1085   1085 0.5777718 0.167023555
-6  k99_129_flag_0_multi_1.0895_len_1004   1004 0.9782470 0.000000000
-7  k99_195_flag_0_multi_1.1286_len_1304   1304 0.6490405 0.137044968
-8  k99_198_flag_0_multi_1.0240_len_2013   2013 0.9160325 0.012847966
-9  k99_202_flag_0_multi_1.0627_len_1422   1422 0.7896913 0.047109208
-10 k99_302_flag_0_multi_1.0064_len_2916   2916 0.5554453 0.184154176
-11 k99_306_flag_0_multi_1.0681_len_2757   2757 0.7608256 0.079229122
-12 k99_322_flag_1_multi_1.0000_len_1376   1376 0.7081389 0.107066381
-13 k99_344_flag_0_multi_1.1461_len_2645   2645 0.9379561 0.006423983
-14 k99_364_flag_0_multi_1.0555_len_1667   1667 0.3391656 0.344753747
-15 k99_371_flag_1_multi_1.0325_len_1267   1267 0.6556022 0.132762313
-16 k99_372_flag_0_multi_1.1047_len_1102   1102 0.9516611 0.004282655
-17 k99_378_flag_0_multi_1.1080_len_1155   1155 0.6412625 0.143468951
-18 k99_384_flag_1_multi_1.0000_len_1517   1517 0.7200811 0.096359743
-19 k99_385_flag_1_multi_1.0000_len_1397   1397 0.9448500 0.006423983
-20 k99_432_flag_1_multi_1.0246_len_1358   1358 0.8990764 0.019271949
-21 k99_437_flag_1_multi_1.0055_len_1002   1002 0.3247552 0.355460385
-22 k99_465_flag_0_multi_1.1863_len_1065   1065 0.6124438 0.154175589
-23 k99_472_flag_1_multi_1.0000_len_2005   2005 0.9024706 0.019271949
-24 k99_532_flag_0_multi_1.0000_len_1504   1504 0.9485974 0.006423983
-25 k99_534_flag_0_multi_1.1536_len_1889   1889 0.4011819 0.295503212
-26 k99_541_flag_0_multi_1.0173_len_2174   2174 0.9516021 0.004282655
-27 k99_557_flag_1_multi_1.0126_len_1522   1522 0.5683598 0.171306210
-28 k99_559_flag_1_multi_1.0000_len_1227   1227 0.5942154 0.162740899
-29 k99_572_flag_0_multi_1.0696_len_1090   1090 0.0569317 0.807280514
-30 k99_575_flag_1_multi_1.0000_len_1738   1738 0.7200967 0.096359743
+                                   name length      score      pvalue
+1   k99_68_flag_0_multi_1.0368_len_1132   1132 0.74745966 0.083511777
+2  k99_104_flag_1_multi_1.0445_len_1246   1246 0.94734937 0.006423983
+3  k99_105_flag_0_multi_1.0997_len_1202   1202 0.58240735 0.164882227
+4  k99_109_flag_1_multi_1.0000_len_1284   1284 0.63239555 0.147751606
+5  k99_116_flag_0_multi_1.1623_len_1085   1085 0.61511126 0.152034261
+6  k99_129_flag_0_multi_1.0895_len_1004   1004 0.98984858 0.000000000
+7  k99_195_flag_0_multi_1.1286_len_1304   1304 0.66049598 0.130620985
+8  k99_198_flag_0_multi_1.0240_len_2013   2013 0.96030192 0.004282655
+9  k99_202_flag_0_multi_1.0627_len_1422   1422 0.82722755 0.038543897
+10 k99_302_flag_0_multi_1.0064_len_2916   2916 0.48480237 0.237687366
+11 k99_306_flag_0_multi_1.0681_len_2757   2757 0.80881256 0.040685225
+12 k99_322_flag_1_multi_1.0000_len_1376   1376 0.77543635 0.066381156
+13 k99_344_flag_0_multi_1.1461_len_2645   2645 0.96911650 0.004282655
+14 k99_364_flag_0_multi_1.0555_len_1667   1667 0.36157258 0.314775161
+15 k99_371_flag_1_multi_1.0325_len_1267   1267 0.69287455 0.111349036
+16 k99_372_flag_0_multi_1.1047_len_1102   1102 0.96991920 0.004282655
+17 k99_378_flag_0_multi_1.1080_len_1155   1155 0.60488682 0.154175589
+18 k99_384_flag_1_multi_1.0000_len_1517   1517 0.74625678 0.083511777
+19 k99_385_flag_1_multi_1.0000_len_1397   1397 0.96689666 0.004282655
+20 k99_432_flag_1_multi_1.0246_len_1358   1358 0.95048988 0.004282655
+21 k99_437_flag_1_multi_1.0055_len_1002   1002 0.38614735 0.299785867
+22 k99_465_flag_0_multi_1.1863_len_1065   1065 0.62130569 0.149892934
+23 k99_472_flag_1_multi_1.0000_len_2005   2005 0.94776641 0.006423983
+24 k99_532_flag_0_multi_1.0000_len_1504   1504 0.96817035 0.004282655
+25 k99_534_flag_0_multi_1.1536_len_1889   1889 0.37865729 0.301927195
+26 k99_541_flag_0_multi_1.0173_len_2174   2174 0.96703168 0.004282655
+27 k99_557_flag_1_multi_1.0126_len_1522   1522 0.57316669 0.169164882
+28 k99_559_flag_1_multi_1.0000_len_1227   1227 0.68413745 0.117773019
+29 k99_572_flag_0_multi_1.0696_len_1090   1090 0.03250217 0.886509636
+30 k99_575_flag_1_multi_1.0000_len_1738   1738 0.80833295 0.040685225
 > 
 > #### (3.3) sort sequences by p-value in ascending order
 > predResultUser[order(predResultUser$pvalue),]
-                                   name length     score      pvalue
-6  k99_129_flag_0_multi_1.0895_len_1004   1004 0.9782470 0.000000000
-16 k99_372_flag_0_multi_1.1047_len_1102   1102 0.9516611 0.004282655
-26 k99_541_flag_0_multi_1.0173_len_2174   2174 0.9516021 0.004282655
-13 k99_344_flag_0_multi_1.1461_len_2645   2645 0.9379561 0.006423983
-19 k99_385_flag_1_multi_1.0000_len_1397   1397 0.9448500 0.006423983
-24 k99_532_flag_0_multi_1.0000_len_1504   1504 0.9485974 0.006423983
-8  k99_198_flag_0_multi_1.0240_len_2013   2013 0.9160325 0.012847966
-2  k99_104_flag_1_multi_1.0445_len_1246   1246 0.9060059 0.019271949
-20 k99_432_flag_1_multi_1.0246_len_1358   1358 0.8990764 0.019271949
-23 k99_472_flag_1_multi_1.0000_len_2005   2005 0.9024706 0.019271949
-9  k99_202_flag_0_multi_1.0627_len_1422   1422 0.7896913 0.047109208
-11 k99_306_flag_0_multi_1.0681_len_2757   2757 0.7608256 0.079229122
-18 k99_384_flag_1_multi_1.0000_len_1517   1517 0.7200811 0.096359743
-30 k99_575_flag_1_multi_1.0000_len_1738   1738 0.7200967 0.096359743
-12 k99_322_flag_1_multi_1.0000_len_1376   1376 0.7081389 0.107066381
-1   k99_68_flag_0_multi_1.0368_len_1132   1132 0.6606315 0.130620985
-15 k99_371_flag_1_multi_1.0325_len_1267   1267 0.6556022 0.132762313
-7  k99_195_flag_0_multi_1.1286_len_1304   1304 0.6490405 0.137044968
-17 k99_378_flag_0_multi_1.1080_len_1155   1155 0.6412625 0.143468951
-3  k99_105_flag_0_multi_1.0997_len_1202   1202 0.6171776 0.152034261
-4  k99_109_flag_1_multi_1.0000_len_1284   1284 0.6131472 0.154175589
-22 k99_465_flag_0_multi_1.1863_len_1065   1065 0.6124438 0.154175589
-28 k99_559_flag_1_multi_1.0000_len_1227   1227 0.5942154 0.162740899
-5  k99_116_flag_0_multi_1.1623_len_1085   1085 0.5777718 0.167023555
-27 k99_557_flag_1_multi_1.0126_len_1522   1522 0.5683598 0.171306210
-10 k99_302_flag_0_multi_1.0064_len_2916   2916 0.5554453 0.184154176
-25 k99_534_flag_0_multi_1.1536_len_1889   1889 0.4011819 0.295503212
-14 k99_364_flag_0_multi_1.0555_len_1667   1667 0.3391656 0.344753747
-21 k99_437_flag_1_multi_1.0055_len_1002   1002 0.3247552 0.355460385
-29 k99_572_flag_0_multi_1.0696_len_1090   1090 0.0569317 0.807280514
+                                   name length      score      pvalue
+6  k99_129_flag_0_multi_1.0895_len_1004   1004 0.98984858 0.000000000
+8  k99_198_flag_0_multi_1.0240_len_2013   2013 0.96030192 0.004282655
+13 k99_344_flag_0_multi_1.1461_len_2645   2645 0.96911650 0.004282655
+16 k99_372_flag_0_multi_1.1047_len_1102   1102 0.96991920 0.004282655
+19 k99_385_flag_1_multi_1.0000_len_1397   1397 0.96689666 0.004282655
+20 k99_432_flag_1_multi_1.0246_len_1358   1358 0.95048988 0.004282655
+24 k99_532_flag_0_multi_1.0000_len_1504   1504 0.96817035 0.004282655
+26 k99_541_flag_0_multi_1.0173_len_2174   2174 0.96703168 0.004282655
+2  k99_104_flag_1_multi_1.0445_len_1246   1246 0.94734937 0.006423983
+23 k99_472_flag_1_multi_1.0000_len_2005   2005 0.94776641 0.006423983
+9  k99_202_flag_0_multi_1.0627_len_1422   1422 0.82722755 0.038543897
+11 k99_306_flag_0_multi_1.0681_len_2757   2757 0.80881256 0.040685225
+30 k99_575_flag_1_multi_1.0000_len_1738   1738 0.80833295 0.040685225
+12 k99_322_flag_1_multi_1.0000_len_1376   1376 0.77543635 0.066381156
+1   k99_68_flag_0_multi_1.0368_len_1132   1132 0.74745966 0.083511777
+18 k99_384_flag_1_multi_1.0000_len_1517   1517 0.74625678 0.083511777
+15 k99_371_flag_1_multi_1.0325_len_1267   1267 0.69287455 0.111349036
+28 k99_559_flag_1_multi_1.0000_len_1227   1227 0.68413745 0.117773019
+7  k99_195_flag_0_multi_1.1286_len_1304   1304 0.66049598 0.130620985
+4  k99_109_flag_1_multi_1.0000_len_1284   1284 0.63239555 0.147751606
+22 k99_465_flag_0_multi_1.1863_len_1065   1065 0.62130569 0.149892934
+5  k99_116_flag_0_multi_1.1623_len_1085   1085 0.61511126 0.152034261
+17 k99_378_flag_0_multi_1.1080_len_1155   1155 0.60488682 0.154175589
+3  k99_105_flag_0_multi_1.0997_len_1202   1202 0.58240735 0.164882227
+27 k99_557_flag_1_multi_1.0126_len_1522   1522 0.57316669 0.169164882
+10 k99_302_flag_0_multi_1.0064_len_2916   2916 0.48480237 0.237687366
+21 k99_437_flag_1_multi_1.0055_len_1002   1002 0.38614735 0.299785867
+25 k99_534_flag_0_multi_1.1536_len_1889   1889 0.37865729 0.301927195
+14 k99_364_flag_0_multi_1.0555_len_1667   1667 0.36157258 0.314775161
+29 k99_572_flag_0_multi_1.0696_len_1090   1090 0.03250217 0.886509636
 > 
 > 
 > 
@@ -601,7 +601,7 @@ Loading required package: qvalue
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  459.854 5.327 477.402 0 0 
+Time elapsed:  463.378 5.321 483.363 0 0 
 > grDevices::dev.off()
 null device 
           1 
