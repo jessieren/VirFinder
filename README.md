@@ -159,9 +159,6 @@ The screen output for the training process will be something like the following,
   <img src="train_snapshot.png"/>
 </p>
 
-<p align="center">
-  <img src="result_snapshot.png"/>
-</p>
 
 Once the trained model is returned, it can be used to predict viral sequences. 
 Here we use the same example, the small testing data containing 30 contigs, for illustrate the usage.
