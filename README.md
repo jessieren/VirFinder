@@ -150,9 +150,16 @@ and for sequences > 3 kb, the model trained using 3 kb fragments is used for pre
     w <- 4  # the length of the k-tuple word
     VF.trainModUser <- VF.train.user(trainFaFileHost, trainFaFileVirus, userModDir, userModName, w, equalSize=TRUE)
 
-Collecting fragments and training the model may take hours. 
+Collecting fragments and training the model may take some time. 
 #Roughly, it takes 1 min to collect 100 contigs and count 8-mer frequencies. 
-Decreasing kmer length can exponentially reduce the computing time.
+Decreasing kmer length can exponentially reduce the computing time. 
+The screen output for the training process will be something like the following,
+
+<p align="center">
+  <img src="train_snapshot.png"/>
+</p>
+
+
 Once the trained model is returned, it can be used to predict viral sequences. 
 Here we use the same example, the small testing data containing 30 contigs, for illustrate the usage.
 
@@ -167,7 +174,10 @@ Here we use the same example, the small testing data containing 30 contigs, for 
     #### (3.3) sort sequences by p-value in ascending order
     predResultUser[order(predResultUser$pvalue),]
 
-
+The predict scores will be something like the following,
+<p align="center">
+  <img src="train_pred_snapshot.png"/>
+</p>
 
 
 
