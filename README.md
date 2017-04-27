@@ -181,6 +181,13 @@ The predict scores will be something like the following,
 </p>
 
 
+Remarks
+------------------
+Users applying VirFinder to eukaryotic host associated microbiomes should 
+take caution in filtering out eukaryotic sequences,
+ as VirFinder may potentially mis-identify those sequences as viral, 
+ since eukaryotic sequences were not included in VirFinder’s training datasets.
+
 
 Copyright and License Information
 -----------------------------------

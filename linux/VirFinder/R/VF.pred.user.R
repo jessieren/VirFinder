@@ -53,7 +53,7 @@ function(inFaFile, VF.trainModUser)
         nullDis <- attr(VF.trainModUser, "nullDis_3k")
       }
       
-      lasso.pred <- predict(lasso.mod, t(as.matrix(featureOut_kmerCount)), type="response")
+      lasso.pred <- predict(lasso.mod, t(as.matrix(featureOut_kmerCount)), type="response", s="lambda.min")
       pvalue <- mean(nullDis > as.numeric(lasso.pred) )
       #write(paste(currentFileName, seqLength, lasso.pred, pvalue, sep=","), file=attr(objFa, "predFile"), append=TRUE)
       predResult <- rbind(predResult, c(currentFileName, seqLength, lasso.pred, pvalue))
@@ -98,7 +98,8 @@ function(inFaFile, VF.trainModUser)
     nullDis <- attr(VF.trainModUser, "nullDis_3k")
   }
   
-  lasso.pred <- predict(lasso.mod, t(as.matrix(featureOut_kmerCount)), type="response")
+  #Default is the value s="lambda.1se" stored on the CV object
+  lasso.pred <- predict(lasso.mod, t(as.matrix(featureOut_kmerCount)), type="response", s="lambda.min")
   pvalue <- mean(nullDis > as.numeric(lasso.pred) )
   #write(paste(currentFileName, seqLength, lasso.pred, pvalue, sep=","), file=attr(objFa, "predFile"), append=TRUE)
   predResult <- rbind(predResult, c(currentFileName, seqLength, lasso.pred, pvalue))
