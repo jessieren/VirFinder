@@ -76,7 +76,7 @@ To quick start, one can predict the viral contigs using the command,
     predResult <- VF.pred(<path_to_the_fasta_file>)
     
     
-As an example, the package provides a small testing data containing 30 contigs, 
+As an example, the package provides a small testing data containing 30 metagenomically assembled contigs, 
 
     ## (1) set the input fasta file name. 
     library(VirFinder)
@@ -189,6 +189,7 @@ Remarks
 2. VF.qvalue uses the existing function "qvalue" in the R package "qvalue" (Bass JDSwcfAJ, Dabney A and Robinson D (2015)) to estimate q-values given p-values. 
 When p-values are not valid, VF.qvalue may prompt the error as "The estimated pi0 <= 0. Check that you have valid p-values or use a different range of lambda.".
 The error may also come up when the p-values are not fully covering the whole interval [0,1] or when there is lack of p-values close or equal to 1.
+One possible case that leads to the above senario is there are not enough bacteria contigs in the data such that the porportion of bacteria contigs cannot be estimated. 
 
 
 
