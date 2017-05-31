@@ -186,8 +186,8 @@ Remarks
 1. Users applying VirFinder to eukaryotic host associated microbiomes should take caution in filtering out eukaryotic sequences,
  as VirFinder may potentially mis-identify those sequences as viral, since eukaryotic sequences were not included in VirFinder’s training datasets.
 
-2. VF.qvalue uses the function qvalue in the R package "qvalue" (Bass JDSwcfAJ, Dabney A and Robinson D (2015)) to estimate the qvalues. 
-When p-values are not valid, VF.qvalue may prompt the error as "The estimated pi0 <= 0. Check that you have valid p-values or use a different range of lambda."
+2. VF.qvalue uses the existing function "qvalue" in the R package "qvalue" (Bass JDSwcfAJ, Dabney A and Robinson D (2015)) to estimate q-values given p-values. 
+When p-values are not valid, VF.qvalue may prompt the error as "The estimated pi0 <= 0. Check that you have valid p-values or use a different range of lambda".
 The error may also come up when the p-values are not fully covering the whole interval [0,1] or when there is lack of p-values close or equal to 1.
 
 
