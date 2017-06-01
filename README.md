@@ -187,7 +187,7 @@ Remarks
  as VirFinder may potentially mis-identify those sequences as viral, since eukaryotic sequences were not included in VirFinder’s training datasets.
 
 2. VF.qvalue uses the existing function "qvalue" in the R package "qvalue" (Bass JDSwcfAJ, Dabney A and Robinson D (2015)) to estimate q-values given p-values. 
-When p-values are not valid, VF.qvalue may prompt the error as "The estimated pi0 <= 0. Check that you have valid p-values or use a different range of lambda.".
+For some p-value distributions, VF.qvalue may prompt the error as "The estimated pi0 <= 0. Check that you have valid p-values or use a different range of lambda.".
 The error may also come up when the p-values are not fully covering the whole interval [0,1] or when there is a lack of p-values close or equal to 1.
 One possible case that leads to the above scenario is there are not enough bacteria contigs in the data such that the proportion of bacteria contigs cannot be estimated.
 
@@ -200,7 +200,9 @@ Copyright (C) 2017 University of Southern California, Jie Ren
 
 Authors: Jie Ren, Nathan Ahlgren, Yang Lu, Jed Fuhrman, Fengzhu Sun
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+This program is freely available as an R package at https://github.com/jessieren/VirFinder under the terms of the GNU General Public License (version 3) as published by the Free Software Foundation (http://www.gnu.org/licenses/#GPL) for academic use. 
+
+Commercial users should contact Dr. Sun at fsun@usc.edu, copyright at the University of Southern California. 
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
