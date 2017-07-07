@@ -197,7 +197,7 @@ Reference and Citation
 
 If you use VirFinder, please cite the following paper:
 
-[Jie Ren, Nathan A. Ahlgren, Yang Young Lu, Jed A. Fuhrman and Fengzhu Sun. VirFinder: a novel k-mer based tool foridentifying viral sequences from assembled metagenomic data. Microbiome (2017) 5:69 ](https://link.springer.com/epdf/10.1186/s40168-017-0283-5?author_access_token=YQgkTWibFIFPtRICkTjZF2_BpE1tBhCbnbw3BuzI2RMCpVMGldKV8DA9scozc7Z-db3ufPFz9-pswHsYVHyEsCrziBuECllLPOgZ6ANHsMeKF5KejrdDKdeASyDkxB5wfFDq523QSd01cnqxCLqCiQ%3D%3D)
+[Jie Ren, Nathan A. Ahlgren, Yang Young Lu, Jed A. Fuhrman and Fengzhu Sun. VirFinder: a novel k-mer based tool foridentifying viral sequences from assembled metagenomic data. _Microbiome_ (2017) 5:69 ](https://link.springer.com/epdf/10.1186/s40168-017-0283-5?author_access_token=YQgkTWibFIFPtRICkTjZF2_BpE1tBhCbnbw3BuzI2RMCpVMGldKV8DA9scozc7Z-db3ufPFz9-pswHsYVHyEsCrziBuECllLPOgZ6ANHsMeKF5KejrdDKdeASyDkxB5wfFDq523QSd01cnqxCLqCiQ%3D%3D)
 
 
 
