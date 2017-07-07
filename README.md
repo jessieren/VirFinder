@@ -206,7 +206,7 @@ If you use VirFinder, please cite the following paper:
 Copyright and License Information
 -----------------------------------
 
-Copyright (C) 2017 University of Southern California, Jie Ren
+Copyright (C) 2017 University of Southern California
 
 Authors: Jie Ren, Nathan Ahlgren, Yang Lu, Jed Fuhrman, Fengzhu Sun
 
