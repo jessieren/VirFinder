@@ -1,9 +1,9 @@
 #include <Rcpp.h>
-#include <tr1/unordered_map>
-//#include <unordered_map>
+//#include <tr1/unordered_map>
+#include <unordered_map>
 #include <vector>
 #include <iostream>
-using namespace std::tr1;
+//using namespace std::tr1;
 using namespace std;
 //
 using namespace Rcpp;
@@ -157,8 +157,8 @@ void loadToVector(int k, unsigned long total, vector<double>& kmerCount)
 }
 
 
-
-
+// Enable C++11
+// [[Rcpp::plugins("cpp11")]]
 // [[Rcpp::export]]
 List countSeqFeatureCpp( CharacterVector RseqDNA,  int k) {
 	

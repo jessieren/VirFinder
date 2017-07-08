@@ -10,3 +10,4 @@ Depends: glmnet, qvalue, Matrix
 License: GPL (>= 2)
 Imports: Rcpp (>= 0.12.8)
 LinkingTo: Rcpp
+SystemRequirements: C++11
