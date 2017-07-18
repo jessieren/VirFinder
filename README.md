@@ -130,7 +130,7 @@ The directory where the file of the trained model will be saved and the name of 
     userModDir <- file.path(find.package("VirFinder"))
     userModName <- "modTara"
     
-The input sequences are then fragmented into fixed lengths of 0.5 kb, 1kb and 3kb. 
+The input sequences are then split into non-overlapping fragments of fixed lengths of 0.5 kb, 1kb and 3kb. 
 The k-tuple frequencies are counted for each fragments. 
 The length of the k-tuple need to be specified.
 The longer k-tuple can describe better the difference between virus and host sequences, 
