@@ -1,5 +1,5 @@
 VF.pred <-
-function(inFaFile)
+function(inFaFile, verbose = TRUE)
 {
   data(VF.trainMod8mer)
   w <- VF.trainMod8mer
@@ -62,8 +62,10 @@ function(inFaFile)
       #write(paste(currentFileName, seqLength, lasso.pred, pvalue, sep=","), file=attr(objFa, "predFile"), append=TRUE)
       predResult <- rbind(predResult, c(currentFileName, seqLength, lasso.pred, pvalue))
       contigCount <- contigCount + 1
-      print(paste(basename(inFaFile), paste("[", contigCount, "]", sep=""), paste("line", line0, "-", lineNum, sep=""), currentFileName, "len", seqLength, "score", round(lasso.pred, 4), "pvalue", round(pvalue, 4)))
-      
+      if( verbose == TRUE )
+      {
+       print(paste(basename(inFaFile), paste("[", contigCount, "]", sep=""), paste("line", line0, "-", lineNum, sep=""), currentFileName, "len", seqLength, "score", round(lasso.pred, 4), "pvalue", round(pvalue, 4)))
+      }
       #### start the current contig ####
       seqFa <- NULL
       flag <- 1
@@ -111,7 +113,10 @@ function(inFaFile)
   predResult <- rbind(predResult, c(currentFileName, seqLength, lasso.pred, pvalue))
   
   contigCount <- contigCount + 1
-  print(paste(basename(inFaFile), paste("[", contigCount, "]", sep=""), paste("line", line0, "-", lineNum, sep=""), currentFileName, "len", seqLength, "score", round(lasso.pred, 4), "pvalue", round(pvalue, 4)))
+  if( verbose == TRUE )
+  {
+    print(paste(basename(inFaFile), paste("[", contigCount, "]", sep=""), paste("line", line0, "-", lineNum, sep=""), currentFileName, "len", seqLength, "score", round(lasso.pred, 4), "pvalue", round(pvalue, 4)))
+  }
   
   colnames(predResult) <- c("name", "length", "score", "pvalue")
   predResult_df <- as.data.frame(predResult)
