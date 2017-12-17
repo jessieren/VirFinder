@@ -181,6 +181,30 @@ The predict scores will be something like the following,
 </p>
 
 
+
+
+VirFinder model for predicting prokaryotic phages and eukaryotic viruses 
+--------- 
+VirFinder was originally designed for detecting bacterial and archaeal viruses in the metagenomic data. 
+Although the metagenomic samples are mostly composed by prokaryotes and prokaryotic viruses, 
+it is possible that a few eukaryotic viruses that infecting human or other eukaryotic species can be found in the data.
+VirFinder provides the functions "VF.train.user" and "VF.pred.user" that allow users to easily train new classification models using their own database.
+With the help of Dr. Osnat Tirosh, we collected about 5800 human, plants and invertebrates eukaryotic viruses from NCBI. 
+Those eukaryotic viruses are split into non-overlapping fragments of various lengths L = 500, 1000, 3000 for training and testing. 
+The number of the contigs for eukaryotic viruses are shown in the following table:
+
+| Tables        | Before 2014   | After 2014  |
+| ------------- |:-------------:| -----:|
+| 500 bp        |  54458        | 40542 |
+| 1000 bp       |  26820        | 19558 |
+| 3000 bp       |  8083         | 5665  |
+
+
+We trained the VirFinder using the positive set containing all the previously prokaryotic contigs plus the newly collected eukaryotic contigs, 
+and the negative set containing the same number of bacteria host contigs. 
+VirFinder was trained in the three models: a model for predicting contigs of 500-1000 bp, a model for predicting contigs of 1000-3000 bp, and a model for contigs > 3000 bp.
+The trained model can be downloaded from [here](https://www.google.com)
+
 Remarks
 ------------------
 1. Users applying VirFinder to eukaryotic host associated microbiomes should take caution in filtering out eukaryotic sequences,
