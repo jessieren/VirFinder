@@ -193,13 +193,12 @@ With the help of Dr. Osnat Tirosh, we collected about 5800 human, plants and inv
 Those eukaryotic viruses are split into non-overlapping fragments of various lengths L = 500, 1000, 3000 for training and testing. 
 The number of the contigs for eukaryotic viruses are shown in the following table:
 
-<p align="center">
 | Tables        | Before 2014   | After 2014  |
 | ------------- |:-------------:| -----:|
 | 500 bp        |  54458        | 40542 |
 | 1000 bp       |  26820        | 19558 |
 | 3000 bp       |  8083         | 5665  |
-</p>
+
 
 We trained the VirFinder using the positive set containing all the previously prokaryotic contigs plus the newly collected eukaryotic contigs, 
 and the negative set containing the same number of bacteria host contigs. 
@@ -209,7 +208,7 @@ The eukaryotic viruses and prokaryotic viruses both have high AUC scores around 
 Eukaryotic viruses have a slight better performance than prokaryotic viruses, but the difference is very small. 
 See the following figures for the details:
 <p align="center">
-  <img src="EPV/ROC_modk8_after2014_eukV_phageV.png =250x"/>
+  <img src="EPV/ROC_modk8_after2014_eukV_phageV.png" alt="ROCEPV" style="width: 200px;"/>
   <img src="EPV/ROC_modk8_after2014_eukV_phageV_seperate.png"/>
 </p>
 
