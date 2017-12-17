@@ -223,7 +223,8 @@ second, use the function "VF.pred.user(inFaFile, modEPV)" to predict the contigs
     load(modFile)
     
     ## specify the fasta file containing contigs for prediction
-    inFaFile <- "<path_to_the_input_fasta_file>/input.fasta"
+    #inFaFile <- "<path_to_the_input_fasta_file>/input.fasta"
+    inFaFile <- system.file("data", "crAssphage.fasta", package="VirFinder")
     
     ## predict the contigs using the new model
     predResultUser <- VF.pred.user(inFaFile, modEPV)
