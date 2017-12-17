@@ -203,7 +203,17 @@ The number of the contigs for eukaryotic viruses are shown in the following tabl
 We trained the VirFinder using the positive set containing all the previously prokaryotic contigs plus the newly collected eukaryotic contigs, 
 and the negative set containing the same number of bacteria host contigs. 
 VirFinder was trained in the three models: a model for predicting contigs of 500-1000 bp, a model for predicting contigs of 1000-3000 bp, and a model for contigs > 3000 bp.
-The trained model can be downloaded from [here](https://www.google.com)
+We evaluated the prediction performance of this new model at three different contig lengths. The AUC scores (area under the ROC curve) for the new model are similar to that for the original model in the paper.
+The eukaryotic viruses and prokaryotic viruses both have high AUC scores around 0.97 for 3000 bp contigs, 0.93 for 1000 bp contigs, and 0.90 for 500 bp contigs. 
+Eukaryotic viruses have a slight better performance than prokaryotic viruses, but the difference is very small. 
+See the following figures for the details:
+<p align="center">
+  <img src="./ROC_modk8_after2014_eukV_phageV.pdf"/>
+  <img src="./ROC_modk8_after2014_eukV_phageV_seperate.pdf"/>
+</p>
+
+
+The trained model can be downloaded from [here](https://github.com/jessieren/VirFinder/raw/master/EPV/VF.modEPV_k8.rda)
 
 Remarks
 ------------------
