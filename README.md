@@ -185,25 +185,27 @@ The predict scores will be something like the following,
 
 VirFinder model for predicting prokaryotic phages and eukaryotic viruses 
 --------- 
-VirFinder was originally designed for detecting bacterial and archaeal viruses in the metagenomic data. 
-Although the metagenomic samples are mostly composed by prokaryotes and prokaryotic viruses, 
+VirFinder was originally designed for detecting bacterial and archaeal viruses in metagenomic data. 
+Although metagenomic samples are mostly composed by prokaryotes and prokaryotic viruses, 
 it is possible that a few eukaryotic viruses that infecting human or other eukaryotic species can be found in the data.
 VirFinder provides the functions "VF.train.user" and "VF.pred.user" that allow users to easily train new classification models using their own database.
 With the help of Dr. Osnat Tirosh, we collected about 5800 human, plants and invertebrates eukaryotic viruses from NCBI. 
-Those eukaryotic viruses are split into non-overlapping fragments of various lengths L = 500, 1000, 3000 for training and testing. 
+Those eukaryotic viruses were split into non-overlapping fragments of various lengths, 500, 1000, 3000 bp, for training and testing. 
+Following the same procedure in the paper, we used the contigs before 2014 for training and contigs after 2014 for testing. 
 The number of the contigs for eukaryotic viruses are shown in the following table:
 
-| number of eukaryotic virus contigs for training and testing        | Before 2014   | After 2014  |
-| ------------- |:-------------:| -----:|
-| 500 bp        |  54,458        | 40,542 |
-| 1000 bp       |  26,820        | 19,558 |
-| 3000 bp       |  8,083         | 5,665  |
+| number of eukaryotic virus contigs  | Before 1 January 2014  | After 1 January 2014  | Total 
+| ------------- |:-------------:| -----:| -----:
+| 500 bp        |  54,458        | 40,542 |  95,000
+| 1000 bp       |  26,820        | 19,558 |  46,378
+| 3000 bp       |  8,083         | 5,665  |  13,748
 
 
 We trained the VirFinder using the positive set containing all the previously prokaryotic contigs plus the newly collected eukaryotic contigs, 
 and the negative set containing the same number of bacteria host contigs. 
-VirFinder was trained in the three models: a model for predicting contigs of 500-1000 bp, a model for predicting contigs of 1000-3000 bp, and a model for contigs > 3000 bp.
-We evaluated the prediction performance of this new model at three different contig lengths. The AUC scores (area under the ROC curve) for the new model are similar to that for the original model in the paper.
+Three models were trained: a model for predicting contigs of 500-1000 bp, a model for predicting contigs of 1000-3000 bp, and a model for contigs > 3000 bp.
+We evaluated the prediction performance of the new models at the three different contig lengths. 
+The AUC scores (area under the ROC curve) for the new models are similar to those for the original model in the paper.
 The eukaryotic viruses and prokaryotic viruses both have high AUC scores around 0.97 for 3000 bp contigs, 0.93 for 1000 bp contigs, and 0.90 for 500 bp contigs. 
 Eukaryotic viruses have a slight better performance than prokaryotic viruses, but the difference is very small. 
 See the following figures for the details:
@@ -216,7 +218,7 @@ The newly trained model for predicting both prokaryotic and eukaryotic viruses c
 To use, first specify the directory of the model file "VF.modEPV_k8.rda" and load the model into R workspace. 
 second, use the function "VF.pred.user(inFaFile, modEPV)" to predict the contigs in the input fasta file.
 
-    ## specify the directory of the new model file "VF.modEPV_k8.rda"
+    ## specify the directory of the new model file "VF.modEPV_k8.rda", and load the new model to the work space
     modFile <- "<path_to_the_model_file>/VF.modEPV_k8.rda"
     load(modFile)
     
