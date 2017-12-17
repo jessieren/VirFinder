@@ -209,6 +209,7 @@ Eukaryotic viruses have a slight better performance than prokaryotic viruses, bu
 See the following figures for the details:
 <p align="center">
   <img src="EPV/ROC_modk8_after2014_eukV_phageV.png"/>
+  <img src="EPV/ROC_modk8_after2014_eukV_phageV_seperate.png"/>
 </p>
 
 
