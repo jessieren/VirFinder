@@ -208,7 +208,7 @@ The eukaryotic viruses and prokaryotic viruses both have high AUC scores around 
 Eukaryotic viruses have a slight better performance than prokaryotic viruses, but the difference is very small. 
 See the following figures for the details:
 <p align="center">
-  <img src="./ROC_modk8_after2014_eukV_phageV.png"/>
+  <img src="EPV/ROC_modk8_after2014_eukV_phageV.png"/>
 </p>
 
 
