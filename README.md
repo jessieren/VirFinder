@@ -195,9 +195,9 @@ The number of the contigs for eukaryotic viruses are shown in the following tabl
 
 | Tables        | Before 2014   | After 2014  |
 | ------------- |:-------------:| -----:|
-| 500 bp        |  54458        | 40542 |
-| 1000 bp       |  26820        | 19558 |
-| 3000 bp       |  8083         | 5665  |
+| 500 bp        |  54,458        | 40,542 |
+| 1000 bp       |  26,820        | 19,558 |
+| 3000 bp       |  8,083         | 5,665  |
 
 
 We trained the VirFinder using the positive set containing all the previously prokaryotic contigs plus the newly collected eukaryotic contigs, 
@@ -208,7 +208,7 @@ The eukaryotic viruses and prokaryotic viruses both have high AUC scores around 
 Eukaryotic viruses have a slight better performance than prokaryotic viruses, but the difference is very small. 
 See the following figures for the details:
 <p align="center">
-  <img src="EPV/ROC_modk8_after2014_eukV_phageV.png" alt="ROCEPV" style="width: 10px;"/>
+  <img src="EPV/ROC_modk8_after2014_eukV_phageV.png" width="10" height="10"/> 
   <img src="EPV/ROC_modk8_after2014_eukV_phageV_seperate.png"/>
 </p>
 
