@@ -235,6 +235,7 @@ It suggests that the new model and the original model provide very similar predi
 In fact, the Pearson correlation between the predicted scores for the prokaryotic viral sequences after 2014 using the new model and that using the original model is 0.8766. 
 The Spearman correlation is similar 0.8797.
 Similarily, the Pearson and Spearman corrlation scores for the prokaryotic host sequences after 2014 between the new model and the original model are 0.8752 and 0.8896.
+
 Therefore, the new model is consistent with the original model in predicting the prokaryotic virus and prokaryotic host sequences.
 The new model has higher accuracy for predicting eukaryotic viruses. 
 
