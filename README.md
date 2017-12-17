@@ -212,8 +212,27 @@ See the following figures for the details:
   <img src="EPV/ROC_modk8_after2014_eukV_phageV_seperate.png" width="400" height="400"/>
 </p>
 
+The newly trained model for predicting both prokaryotic and eukaryotic viruses can be downloaded from [here](https://github.com/jessieren/VirFinder/raw/master/EPV/VF.modEPV_k8.rda).
+To use, first specify the directory of the model file "VF.modEPV_k8.rda" and load the model into R workspace. 
+second, use the function "VF.pred.user(inFaFile, modEPV)" to predict the contigs in the input fasta file.
 
-The trained model can be downloaded from [here](https://github.com/jessieren/VirFinder/raw/master/EPV/VF.modEPV_k8.rda)
+    ## specify the directory of the new model file "VF.modEPV_k8.rda"
+    modFile <- "<path_to_the_model_file>/VF.modEPV_k8.rda"
+    load(modFile)
+    
+    ## specify the fasta file containing contigs for prediction
+    inFaFile <- "<path_to_the_input_fasta_file>/input.fasta"
+    
+    ## predict the contigs using the new model
+    predResultUser <- VF.pred.user(inFaFile, modEPV)
+
+
+<!--An interesting question is whether the original VirFinder model (trained using only prokaryotic viruses) can be used to predict the eukaryotic viruses? -->
+<!--If yes, how well the model performs? -->
+<!--If the original model for prokaryotic viruse also works well for predicting eukaryotic viruses, then it indicates that both types of viruses share similar k-mer patterns.-->
+<!--The AUC scores for predicting eukaryotic viral contigs using the original VirFinder model is 0.80 for 500 bp contigs, 0.82 for 1000 bp contigs, and 0.87 for -->
+<!---->
+
 
 Remarks
 ------------------
