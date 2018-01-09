@@ -1,5 +1,4 @@
 # VirFinder-deep: Identifying viral sequences from metagenomic data using convolutional neural networks
-Version: 1.1
 
 Authors: Jie Ren, Fengzhu Sun
 
