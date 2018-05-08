@@ -275,7 +275,7 @@ Copyright (C) 2017 University of Southern California
 
 Authors: Jie Ren, Nathan Ahlgren, Yang Lu, Jed Fuhrman, Fengzhu Sun
 
-This program is freely available as an R package at https://github.com/jessieren/VirFinder under the terms of the GNU General Public (version 3) as published by the Free Software Foundation (http://www.gnu.org/licenses/#GPL) for academic use. 
+This program is freely available as an R package at https://github.com/jessieren/VirFinder under the terms of USC-RL v1.0. 
 
 Commercial users should contact Dr. Sun at fsun@usc.edu, copyright at the University of Southern California. 
 
