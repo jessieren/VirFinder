@@ -230,7 +230,7 @@ second, use the function "VF.pred.user(inFaFile, modEPV)" to predict the contigs
     predResultUser <- VF.pred.user(inFaFile, modEPV)
     
     
-For example, the score for crAssphage predicted by the new model is 0.9564 with p-value 0.0074, where the score predicted by the original model is 0.9826 with p-value 0.0034.
+For example, the score for crAssphage predicted by the new model is 0.9564 with p-value 0.0055, where the score predicted by the original model is 0.9826 with p-value 0.0034.
 It suggests that the new model and the original model provide very similar prediction scores for the same prokaryotic viral sequence. 
 In fact, the Pearson correlation between the predicted scores for the prokaryotic viral sequences after 2014 using the new model and that using the original model is 0.8766. 
 The Spearman correlation is similar 0.8797.
