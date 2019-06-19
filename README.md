@@ -256,6 +256,8 @@ For some p-value distributions, VF.qvalue may prompt the error as "The estimated
 The error may also come up when the p-values are not fully covering the whole interval [0,1] or when there is a lack of p-values close or equal to 1.
 One possible case that leads to the above scenario is there are not enough bacteria contigs in the data such that the proportion of bacteria contigs cannot be estimated.
 
+3. VirFinder can be run in parallel using multiple cores. See script [here](https://github.com/rec3141/VirFinder/blob/master/linux/VirFinder/R/parVF.pred.R). Thanks for the contributions from R. Eric Collins.
+
 
 Reference and Citation
 ----------------------
