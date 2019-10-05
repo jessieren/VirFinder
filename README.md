@@ -65,6 +65,7 @@ If you are not using GUI of R, you can install the package from the command line
 
 	Rcmd INSTALL <path_to_the_file>\VirFinder_1.1.zip
   
+VirFinder is also avaiable on [Anaconda](https://anaconda.org/bioconda/r-virfinder). Thanks William L. Close, Ph.D. (wlclose@med.umich.edu) for the efforts!
 
 Usage
 ---------  
