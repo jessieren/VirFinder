@@ -278,11 +278,11 @@ Copyright (C) 2017 University of Southern California
 
 Authors: Jie Ren, Nathan Ahlgren, Yang Lu, Jed Fuhrman, Fengzhu Sun
 
-This program is freely available as an R package at https://github.com/jessieren/VirFinder under the terms of USC-RL v1.0. 
+This program is available as an R package at https://github.com/jessieren/VirFinder under the terms of USC-RL v1.0. 
 
 Commercial users should contact Dr. Sun at fsun@usc.edu, copyright at the University of Southern California. 
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+<!--This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.-->
 
 <!--You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.-->
 
