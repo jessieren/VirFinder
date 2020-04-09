@@ -39,6 +39,8 @@ Installation
 To install the R package VirFinder, follow the instuctions on http://cran.r-project.org/doc/manuals/r-release/R-admin.html#Installing-packages.
 
 To quick start, first download the package file VirFinder_1.1.tar.gz or VirFinder_1.1.zip according to your operating system.
+You can do it by clicking the "Releases" tab, downloading the source file (`zip` or `tar.gz`) *and in its contents find your operating system's directory and appropriate archive inside it (e.g. `VirFinder-1.1/linux/VirFinder-1.1.tar.gz`)*
+**NB!** Installing VirFinder directly from release archive is not possible, you have to unpack one of directories in its contents, as described above!
 
 For Mac/Linux users, if you have a Graphic User Interfaces (GUI) of R, you fire up a R graphic window and type, 
 
